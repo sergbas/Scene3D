@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.google.gson.Gson;
+
 import ru19july.bask.scene3d.Parser.LangClass;
 import ru19july.bask.scene3d.Parser.ListenerOrientedParser;
 import ru19july.bask.scene3d.Parser.VisitorOrientedParser;
@@ -30,10 +32,14 @@ public class MainActivity extends AppCompatActivity {
 
         ListenerOrientedParser parser1 = new ListenerOrientedParser();
         LangClass parsedCode1 = parser1.parse(code);
-        Log.d(TAG, "ListenerOrientedParser: " + parsedCode1);
+        Gson gson = new Gson();
+        String json1 = gson.toJson(parsedCode1);
+
+        Log.d(TAG, "ListenerOrientedParser: " + json1);
 
         VisitorOrientedParser parser2 = new VisitorOrientedParser();
         LangClass parsedCode2 = parser2.parse(code);
-        Log.d(TAG, "VisitorOrientedParser: " + parsedCode2);
+        String json2 = gson.toJson(parsedCode2);
+        Log.d(TAG, "VisitorOrientedParser: " + json2);
     }
 }
