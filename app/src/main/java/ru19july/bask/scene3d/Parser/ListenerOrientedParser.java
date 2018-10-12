@@ -67,7 +67,13 @@ public class ListenerOrientedParser {
             ParameterListener parameterListener = new ParameterListener();
             if(ctx.parameters() != null) {
                 ctx.parameters().enterRule(parameterListener);
-                parameters = parameterListener.getParameters();
+                //parameters = parameterListener.getParameters();
+            }
+
+            AnyValueListener anyValueListener = new AnyValueListener();
+            if(ctx.parameters() != null && ctx.parameters().any_value() != null) {
+                ctx.parameters().any_value().forEach(v -> v.enterRule(anyValueListener));
+                parameters = anyValueListener.getParameters();
             }
 
             InstructionListener instructionListener = new InstructionListener();
@@ -94,6 +100,25 @@ public class ListenerOrientedParser {
         public void enterParameters(@NotNull LangParser.ParametersContext ctx) {
             String instructionName = ctx.getText();
             parameters.add(new LangParameter(instructionName));
+        }
+
+        public Collection<LangParameter> getParameters() {
+            return parameters;
+        }
+    }
+
+    class AnyValueListener extends LangParserBaseListener {
+
+        private Collection<LangParameter> parameters;
+
+        public AnyValueListener() {
+            parameters = new ArrayList<>();
+        }
+
+        @Override
+        public void enterAny_value(LangParser.Any_valueContext ctx) {
+            String name = ctx.getText();
+            parameters.add(new LangParameter(name));
         }
 
         public Collection<LangParameter> getParameters() {
