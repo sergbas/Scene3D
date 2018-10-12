@@ -3,42 +3,44 @@ package ru19july.bask.scene3d.Parser.antlr;
 // Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
+import ru19july.bask.scene3d.Parser.antlr.LangParser;
+
 /**
  * This interface defines a complete generic visitor for a parse tree produced
- * by {@link LangParserParser}.
+ * by {@link LangParser}.
  *
  * @param <T> The return type of the visit operation. Use {@link Void} for
  * operations with no return type.
  */
 public interface LangParserVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link LangParserParser#classDeclaration}.
+	 * Visit a parse tree produced by {@link LangParser#classDeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClassDeclaration(LangParserParser.ClassDeclarationContext ctx);
+	T visitClassDeclaration(LangParser.ClassDeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LangParserParser#className}.
+	 * Visit a parse tree produced by {@link LangParser#className}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClassName(LangParserParser.ClassNameContext ctx);
+	T visitClassName(LangParser.ClassNameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LangParserParser#method}.
+	 * Visit a parse tree produced by {@link LangParser#method}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMethod(LangParserParser.MethodContext ctx);
+	T visitMethod(LangParser.MethodContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LangParserParser#methodName}.
+	 * Visit a parse tree produced by {@link LangParser#methodName}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMethodName(LangParserParser.MethodNameContext ctx);
+	T visitMethodName(LangParser.MethodNameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LangParserParser#instruction}.
+	 * Visit a parse tree produced by {@link LangParser#instruction}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInstruction(LangParserParser.InstructionContext ctx);
+	T visitInstruction(LangParser.InstructionContext ctx);
 }

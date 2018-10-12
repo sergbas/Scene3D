@@ -13,17 +13,17 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import ru19july.bask.scene3d.Parser.antlr.LangLexerLexer;
+import ru19july.bask.scene3d.Parser.antlr.LangLexer;
+import ru19july.bask.scene3d.Parser.antlr.LangParser;
 import ru19july.bask.scene3d.Parser.antlr.LangParserBaseListener;
-import ru19july.bask.scene3d.Parser.antlr.LangParserParser;
 
 public class ListenerOrientedParser {
 
     public LangClass parse(String code) {
         CharStream charStream = new ANTLRInputStream(code);
-        LangLexerLexer lexer = new LangLexerLexer(charStream);
+        LangLexer lexer = new LangLexer(charStream);
         TokenStream tokens = new CommonTokenStream(lexer);
-        LangParserParser parser = new LangParserParser(tokens);
+        LangParser parser = new LangParser(tokens);
 
         ClassListener classListener = new ClassListener();
         parser.classDeclaration().enterRule(classListener);
@@ -36,7 +36,7 @@ public class ListenerOrientedParser {
 
         @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
-        public void enterClassDeclaration(@NotNull LangParserParser.ClassDeclarationContext ctx) {
+        public void enterClassDeclaration(@NotNull LangParser.ClassDeclarationContext ctx) {
             String className = ctx.className().getText();
             MethodListener methodListener = new MethodListener();
             ctx.method().forEach(method -> method.enterRule(methodListener));
@@ -59,7 +59,7 @@ public class ListenerOrientedParser {
 
         @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
-        public void enterMethod(@NotNull LangParserParser.MethodContext ctx) {
+        public void enterMethod(@NotNull LangParser.MethodContext ctx) {
             String methodName = ctx.methodName().getText();
             InstructionListener instructionListener = new InstructionListener();
             ctx.instruction().forEach(instruction -> instruction.enterRule(instructionListener));
@@ -81,7 +81,7 @@ public class ListenerOrientedParser {
         }
 
         @Override
-        public void enterInstruction(@NotNull LangParserParser.InstructionContext ctx) {
+        public void enterInstruction(@NotNull LangParser.InstructionContext ctx) {
             String instructionName = ctx.getText();
             instructions.add(new LangInstruction(instructionName));
         }

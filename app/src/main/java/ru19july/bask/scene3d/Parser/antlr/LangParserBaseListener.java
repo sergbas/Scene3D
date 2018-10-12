@@ -1,5 +1,4 @@
 package ru19july.bask.scene3d.Parser.antlr;
-
 // Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -17,61 +16,61 @@ public class LangParserBaseListener implements LangParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassDeclaration(LangParserParser.ClassDeclarationContext ctx) { }
+	@Override public void enterClassDeclaration(LangParser.ClassDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassDeclaration(LangParserParser.ClassDeclarationContext ctx) { }
+	@Override public void exitClassDeclaration(LangParser.ClassDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassName(LangParserParser.ClassNameContext ctx) { }
+	@Override public void enterClassName(LangParser.ClassNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassName(LangParserParser.ClassNameContext ctx) { }
+	@Override public void exitClassName(LangParser.ClassNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMethod(LangParserParser.MethodContext ctx) { }
+	@Override public void enterMethod(LangParser.MethodContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMethod(LangParserParser.MethodContext ctx) { }
+	@Override public void exitMethod(LangParser.MethodContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMethodName(LangParserParser.MethodNameContext ctx) { }
+	@Override public void enterMethodName(LangParser.MethodNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMethodName(LangParserParser.MethodNameContext ctx) { }
+	@Override public void exitMethodName(LangParser.MethodNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInstruction(LangParserParser.InstructionContext ctx) { }
+	@Override public void enterInstruction(LangParser.InstructionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInstruction(LangParserParser.InstructionContext ctx) { }
+	@Override public void exitInstruction(LangParser.InstructionContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

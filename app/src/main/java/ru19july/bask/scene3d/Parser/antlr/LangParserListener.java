@@ -3,59 +3,61 @@ package ru19july.bask.scene3d.Parser.antlr;
 // Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
+import ru19july.bask.scene3d.Parser.antlr.LangParser;
+
 /**
  * This interface defines a complete listener for a parse tree produced by
- * {@link LangParserParser}.
+ * {@link LangParser}.
  */
 public interface LangParserListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link LangParserParser#classDeclaration}.
+	 * Enter a parse tree produced by {@link LangParser#classDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterClassDeclaration(LangParserParser.ClassDeclarationContext ctx);
+	void enterClassDeclaration(LangParser.ClassDeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LangParserParser#classDeclaration}.
+	 * Exit a parse tree produced by {@link LangParser#classDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitClassDeclaration(LangParserParser.ClassDeclarationContext ctx);
+	void exitClassDeclaration(LangParser.ClassDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LangParserParser#className}.
+	 * Enter a parse tree produced by {@link LangParser#className}.
 	 * @param ctx the parse tree
 	 */
-	void enterClassName(LangParserParser.ClassNameContext ctx);
+	void enterClassName(LangParser.ClassNameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LangParserParser#className}.
+	 * Exit a parse tree produced by {@link LangParser#className}.
 	 * @param ctx the parse tree
 	 */
-	void exitClassName(LangParserParser.ClassNameContext ctx);
+	void exitClassName(LangParser.ClassNameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LangParserParser#method}.
+	 * Enter a parse tree produced by {@link LangParser#method}.
 	 * @param ctx the parse tree
 	 */
-	void enterMethod(LangParserParser.MethodContext ctx);
+	void enterMethod(LangParser.MethodContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LangParserParser#method}.
+	 * Exit a parse tree produced by {@link LangParser#method}.
 	 * @param ctx the parse tree
 	 */
-	void exitMethod(LangParserParser.MethodContext ctx);
+	void exitMethod(LangParser.MethodContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LangParserParser#methodName}.
+	 * Enter a parse tree produced by {@link LangParser#methodName}.
 	 * @param ctx the parse tree
 	 */
-	void enterMethodName(LangParserParser.MethodNameContext ctx);
+	void enterMethodName(LangParser.MethodNameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LangParserParser#methodName}.
+	 * Exit a parse tree produced by {@link LangParser#methodName}.
 	 * @param ctx the parse tree
 	 */
-	void exitMethodName(LangParserParser.MethodNameContext ctx);
+	void exitMethodName(LangParser.MethodNameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LangParserParser#instruction}.
+	 * Enter a parse tree produced by {@link LangParser#instruction}.
 	 * @param ctx the parse tree
 	 */
-	void enterInstruction(LangParserParser.InstructionContext ctx);
+	void enterInstruction(LangParser.InstructionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LangParserParser#instruction}.
+	 * Exit a parse tree produced by {@link LangParser#instruction}.
 	 * @param ctx the parse tree
 	 */
-	void exitInstruction(LangParserParser.InstructionContext ctx);
+	void exitInstruction(LangParser.InstructionContext ctx);
 }
