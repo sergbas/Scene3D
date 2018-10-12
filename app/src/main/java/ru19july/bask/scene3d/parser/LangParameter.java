@@ -1,9 +1,13 @@
 package ru19july.bask.scene3d.parser;
 
 public class LangParameter {
-    private String name;
+    private String value;
 
-    public LangParameter(String pname) {
-        name = pname;
+    public LangParameter(String val) {
+        value = val;
+    }
+
+    public String getValue() {
+        return value;
     }
 }

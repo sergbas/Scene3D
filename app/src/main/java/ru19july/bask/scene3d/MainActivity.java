@@ -14,6 +14,7 @@ import java.util.List;
 import ru19july.bask.scene3d.parser.LangClass;
 import ru19july.bask.scene3d.parser.LangInstruction;
 import ru19july.bask.scene3d.parser.LangMethod;
+import ru19july.bask.scene3d.parser.LangParameter;
 import ru19july.bask.scene3d.parser.ListenerOrientedParser;
 import ru19july.bask.scene3d.parser.VisitorOrientedParser;
 
@@ -26,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String code = "class Sphere {\n" +
+        String code = "scene MyScene {\n" +
                 "    start(){start}\n" +
-                "    draw(128, 256) {\n" +
+                "    sphere(128, 256, 10) {\n" +
                 "        drawSphere\n" +
                 "        invalidate\n" +
                 "    }\n" +
@@ -60,8 +61,15 @@ public class MainActivity extends AppCompatActivity {
         for(LangMethod method : methods){
             Log.d(TAG, "-method: " + method.getName());
 
+            List<LangParameter> parameters = method.getParameters();
             List<LangInstruction> instructions = method.getInstructions();
 
+            if(method.getName().equals("sphere")){
+                Log.d(TAG, ">>> RENDER: rlSphere(x=" + parameters.get(0).getValue() +
+                        ", y=" + parameters.get(1).getValue() +
+                        ", radius=" + parameters.get(2).getValue() + ")");
+
+            }
             for (LangInstruction instruction : instructions){
                 Log.d(TAG, "--instruction: " + instruction.getName());
             }

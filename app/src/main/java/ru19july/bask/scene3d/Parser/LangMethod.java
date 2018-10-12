@@ -27,4 +27,7 @@ public class LangMethod {
         return (List<LangInstruction>) instructions;
     }
 
+    public List<LangParameter> getParameters() {
+        return (List<LangParameter>) parameters;
+    }
 }
