@@ -6,11 +6,12 @@ import java.util.List;
 
 public class LangMethod {
     private String name;
-    private List<LangParameter> parameters;
+    private Collection<LangParameter> parameters;
     private Collection<LangInstruction> instructions;
 
-    public LangMethod(String methodName, Collection<LangInstruction> instructions) {
+    public LangMethod(String methodName, Collection<LangParameter> parameters, Collection<LangInstruction> instructions) {
         name = methodName;
+        this.parameters = parameters;
         this.instructions = instructions;
     }
 

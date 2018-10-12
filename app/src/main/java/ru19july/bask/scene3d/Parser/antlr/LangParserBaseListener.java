@@ -6,6 +6,8 @@ import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
+import ru19july.bask.scene3d.parser.antlr.LangParser;
+
 /**
  * This class provides an empty implementation of {@link LangParserListener},
  * which can be extended to create a listener which only needs to handle a subset
@@ -72,18 +74,6 @@ public class LangParserBaseListener implements LangParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitInstruction(LangParser.InstructionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterParametrized(LangParser.ParametrizedContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitParametrized(LangParser.ParametrizedContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

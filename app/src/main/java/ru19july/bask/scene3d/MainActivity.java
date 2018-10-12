@@ -12,7 +12,7 @@ import ru19july.bask.scene3d.parser.LangClass;
 import ru19july.bask.scene3d.parser.LangInstruction;
 import ru19july.bask.scene3d.parser.LangMethod;
 import ru19july.bask.scene3d.parser.ListenerOrientedParser;
-import ru19july.bask.scene3d.Parser.VisitorOrientedParser;
+import ru19july.bask.scene3d.parser.VisitorOrientedParser;
 
 public class MainActivity extends AppCompatActivity {
 

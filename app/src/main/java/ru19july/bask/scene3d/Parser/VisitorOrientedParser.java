@@ -1,4 +1,4 @@
-package ru19july.bask.scene3d.Parser;
+package ru19july.bask.scene3d.parser;
 
 import android.annotation.TargetApi;
 import android.os.Build;
@@ -11,9 +11,6 @@ import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.List;
 
-import ru19july.bask.scene3d.parser.LangClass;
-import ru19july.bask.scene3d.parser.LangInstruction;
-import ru19july.bask.scene3d.parser.LangMethod;
 import ru19july.bask.scene3d.parser.antlr.LangLexer;
 import ru19july.bask.scene3d.parser.antlr.LangParser;
 import ru19july.bask.scene3d.parser.antlr.LangParserBaseVisitor;
@@ -52,12 +49,29 @@ public class VisitorOrientedParser {
         @Override
         public LangMethod visitMethod(@NotNull LangParser.MethodContext ctx) {
             String methodName = ctx.methodName().getText();
+
+            ParameterVisitor parameterVisitor = new ParameterVisitor();
+           /* LangParameter parameters = ctx.parameters()
+                    .stream()
+                    .map(p -> p.accept(parameterVisitor))
+                    .collect(toList());
+*/
             InstructionVisitor instructionVisitor = new InstructionVisitor();
             List<LangInstruction> instructions = ctx.instruction()
                     .stream()
-                    .map(instruction -> instruction.accept(instructionVisitor))
+                    .map(i -> i.accept(instructionVisitor))
                     .collect(toList());
-            return new LangMethod(methodName, instructions);
+
+            return new LangMethod(methodName, null, instructions);
+        }
+    }
+
+    private static class ParameterVisitor extends  LangParserBaseVisitor<LangParameter> {
+
+        @Override
+        public LangParameter visitParameters(@NotNull LangParser.ParametersContext ctx) {
+            String name = ctx.getText();
+            return new LangParameter(name);
         }
     }
 
