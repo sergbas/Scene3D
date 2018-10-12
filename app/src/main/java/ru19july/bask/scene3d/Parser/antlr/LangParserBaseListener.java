@@ -1,4 +1,5 @@
 package ru19july.bask.scene3d.parser.antlr;
+
 // Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -16,25 +17,25 @@ public class LangParserBaseListener implements LangParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassDeclaration(LangParser.ClassDeclarationContext ctx) { }
+	@Override public void enterSceneDeclaration(LangParser.SceneDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassDeclaration(LangParser.ClassDeclarationContext ctx) { }
+	@Override public void exitSceneDeclaration(LangParser.SceneDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassName(LangParser.ClassNameContext ctx) { }
+	@Override public void enterSceneName(LangParser.SceneNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassName(LangParser.ClassNameContext ctx) { }
+	@Override public void exitSceneName(LangParser.SceneNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

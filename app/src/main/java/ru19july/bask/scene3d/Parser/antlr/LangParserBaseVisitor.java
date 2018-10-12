@@ -1,4 +1,5 @@
 package ru19july.bask.scene3d.parser.antlr;
+
 // Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -17,14 +18,14 @@ public class LangParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitClassDeclaration(LangParser.ClassDeclarationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSceneDeclaration(LangParser.SceneDeclarationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitClassName(LangParser.ClassNameContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSceneName(LangParser.SceneNameContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

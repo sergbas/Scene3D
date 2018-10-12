@@ -1,4 +1,5 @@
 package ru19july.bask.scene3d.parser.antlr;
+
 // Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -11,17 +12,17 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface LangParserVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link LangParser#classDeclaration}.
+	 * Visit a parse tree produced by {@link LangParser#sceneDeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClassDeclaration(LangParser.ClassDeclarationContext ctx);
+	T visitSceneDeclaration(LangParser.SceneDeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LangParser#className}.
+	 * Visit a parse tree produced by {@link LangParser#sceneName}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClassName(LangParser.ClassNameContext ctx);
+	T visitSceneName(LangParser.SceneNameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LangParser#method}.
 	 * @param ctx the parse tree

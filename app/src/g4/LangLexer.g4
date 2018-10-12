@@ -1,7 +1,15 @@
 lexer grammar LangLexer;
 
-CLASS : 'class' ;
+SCENE : 'scene' ;
 ID : [a-zA-Z0-9]+ ;
+OBJECT3D
+    : 'sphere'
+    | 'cube'
+    | 'cylinder'
+    | 'thorus'
+    | 'cone'
+    ;
+
 EQUAL:               '=';
 DIGITS : [0-9]+ ;
 

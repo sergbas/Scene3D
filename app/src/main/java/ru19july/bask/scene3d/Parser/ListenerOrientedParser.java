@@ -26,7 +26,7 @@ public class ListenerOrientedParser {
         LangParser parser = new LangParser(tokens);
 
         ClassListener classListener = new ClassListener();
-        parser.classDeclaration().enterRule(classListener);
+        parser.sceneDeclaration().enterRule(classListener);
         return classListener.getParsedClass();
     }
 
@@ -36,12 +36,12 @@ public class ListenerOrientedParser {
 
         @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
-        public void enterClassDeclaration(@NotNull LangParser.ClassDeclarationContext ctx) {
-            String className = ctx.className().getText();
+        public void enterSceneDeclaration(@NotNull LangParser.SceneDeclarationContext ctx) {
+            String sceneName = ctx.sceneName().getText();
             MethodListener methodListener = new MethodListener();
             ctx.method().forEach(method -> method.enterRule(methodListener));
             Collection<LangMethod> methods = methodListener.getMethods();
-            parsedClass = new LangClass(className,methods);
+            parsedClass = new LangClass(sceneName, methods);
         }
 
         public LangClass getParsedClass() {

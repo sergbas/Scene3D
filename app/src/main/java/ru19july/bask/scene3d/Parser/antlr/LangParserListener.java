@@ -1,4 +1,5 @@
 package ru19july.bask.scene3d.parser.antlr;
+
 // Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -8,25 +9,25 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface LangParserListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link LangParser#classDeclaration}.
+	 * Enter a parse tree produced by {@link LangParser#sceneDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterClassDeclaration(LangParser.ClassDeclarationContext ctx);
+	void enterSceneDeclaration(LangParser.SceneDeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LangParser#classDeclaration}.
+	 * Exit a parse tree produced by {@link LangParser#sceneDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitClassDeclaration(LangParser.ClassDeclarationContext ctx);
+	void exitSceneDeclaration(LangParser.SceneDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LangParser#className}.
+	 * Enter a parse tree produced by {@link LangParser#sceneName}.
 	 * @param ctx the parse tree
 	 */
-	void enterClassName(LangParser.ClassNameContext ctx);
+	void enterSceneName(LangParser.SceneNameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LangParser#className}.
+	 * Exit a parse tree produced by {@link LangParser#sceneName}.
 	 * @param ctx the parse tree
 	 */
-	void exitClassName(LangParser.ClassNameContext ctx);
+	void exitSceneName(LangParser.SceneNameContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LangParser#method}.
 	 * @param ctx the parse tree

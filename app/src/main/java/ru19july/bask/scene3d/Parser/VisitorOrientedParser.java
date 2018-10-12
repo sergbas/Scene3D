@@ -26,15 +26,15 @@ public class VisitorOrientedParser {
         LangParser parser = new LangParser(tokens);
 
         ClassVisitor classVisitor = new ClassVisitor();
-        LangClass traverseResult = classVisitor.visit(parser.classDeclaration());
+        LangClass traverseResult = classVisitor.visit(parser.sceneDeclaration());
         return traverseResult;
     }
 
     private static class ClassVisitor extends LangParserBaseVisitor<LangClass> {
         @TargetApi(Build.VERSION_CODES.N)
         @Override
-        public LangClass visitClassDeclaration(@NotNull LangParser.ClassDeclarationContext ctx) {
-            String className = ctx.className().getText();
+        public LangClass visitSceneDeclaration(@NotNull LangParser.SceneDeclarationContext ctx) {
+            String className = ctx.sceneName().getText();
             MethodVisitor methodVisitor = new MethodVisitor();
             List<LangMethod> methods = ctx.method()
                     .stream()
