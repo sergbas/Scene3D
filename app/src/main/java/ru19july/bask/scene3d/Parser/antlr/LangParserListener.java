@@ -1,9 +1,9 @@
-package ru19july.bask.scene3d.Parser.antlr;
+package ru19july.bask.scene3d.parser.antlr;
 
 // Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
-import ru19july.bask.scene3d.Parser.antlr.LangParser;
+import ru19july.bask.scene3d.parser.antlr.LangParser;
 
 /**
  * This interface defines a complete listener for a parse tree produced by

@@ -11,9 +11,12 @@ import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.List;
 
-import ru19july.bask.scene3d.Parser.antlr.LangLexer;
-import ru19july.bask.scene3d.Parser.antlr.LangParser;
-import ru19july.bask.scene3d.Parser.antlr.LangParserBaseVisitor;
+import ru19july.bask.scene3d.parser.LangClass;
+import ru19july.bask.scene3d.parser.LangInstruction;
+import ru19july.bask.scene3d.parser.LangMethod;
+import ru19july.bask.scene3d.parser.antlr.LangLexer;
+import ru19july.bask.scene3d.parser.antlr.LangParser;
+import ru19july.bask.scene3d.parser.antlr.LangParserBaseVisitor;
 
 import static java.util.stream.Collectors.toList;
 

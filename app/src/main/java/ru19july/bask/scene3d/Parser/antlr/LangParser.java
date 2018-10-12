@@ -1,4 +1,4 @@
-package ru19july.bask.scene3d.Parser.antlr;
+package ru19july.bask.scene3d.parser.antlr;
 
 // Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.atn.*;
@@ -113,15 +113,15 @@ public class LangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_classDeclaration; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).enterClassDeclaration(this);
+			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).enterClassDeclaration(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).exitClassDeclaration(this);
+			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).exitClassDeclaration(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LangParserVisitor ) return ((LangParserVisitor<? extends T>)visitor).visitClassDeclaration(this);
+			if ( visitor instanceof ru19july.bask.scene3d.parser.antlr.LangParserVisitor) return ((ru19july.bask.scene3d.parser.antlr.LangParserVisitor<? extends T>)visitor).visitClassDeclaration(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -176,15 +176,15 @@ public class LangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_className; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).enterClassName(this);
+			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).enterClassName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).exitClassName(this);
+			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).exitClassName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LangParserVisitor ) return ((LangParserVisitor<? extends T>)visitor).visitClassName(this);
+			if ( visitor instanceof ru19july.bask.scene3d.parser.antlr.LangParserVisitor) return ((ru19july.bask.scene3d.parser.antlr.LangParserVisitor<? extends T>)visitor).visitClassName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -228,15 +228,15 @@ public class LangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_method; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).enterMethod(this);
+			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).enterMethod(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).exitMethod(this);
+			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).exitMethod(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LangParserVisitor ) return ((LangParserVisitor<? extends T>)visitor).visitMethod(this);
+			if ( visitor instanceof ru19july.bask.scene3d.parser.antlr.LangParserVisitor) return ((ru19july.bask.scene3d.parser.antlr.LangParserVisitor<? extends T>)visitor).visitMethod(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -289,15 +289,15 @@ public class LangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_methodName; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).enterMethodName(this);
+			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).enterMethodName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).exitMethodName(this);
+			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).exitMethodName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LangParserVisitor ) return ((LangParserVisitor<? extends T>)visitor).visitMethodName(this);
+			if ( visitor instanceof ru19july.bask.scene3d.parser.antlr.LangParserVisitor) return ((ru19july.bask.scene3d.parser.antlr.LangParserVisitor<? extends T>)visitor).visitMethodName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -331,15 +331,15 @@ public class LangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_instruction; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).enterInstruction(this);
+			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).enterInstruction(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).exitInstruction(this);
+			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).exitInstruction(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LangParserVisitor ) return ((LangParserVisitor<? extends T>)visitor).visitInstruction(this);
+			if ( visitor instanceof ru19july.bask.scene3d.parser.antlr.LangParserVisitor) return ((ru19july.bask.scene3d.parser.antlr.LangParserVisitor<? extends T>)visitor).visitInstruction(this);
 			else return visitor.visitChildren(this);
 		}
 	}

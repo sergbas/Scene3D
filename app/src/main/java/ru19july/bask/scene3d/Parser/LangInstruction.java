@@ -1,4 +1,4 @@
-package ru19july.bask.scene3d.Parser;
+package ru19july.bask.scene3d.parser;
 
 public class LangInstruction {
     private String name;

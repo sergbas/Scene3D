@@ -1,9 +1,9 @@
-package ru19july.bask.scene3d.Parser.antlr;
+package ru19july.bask.scene3d.parser.antlr;
 
 // Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
-import ru19july.bask.scene3d.Parser.antlr.LangParser;
+import ru19july.bask.scene3d.parser.antlr.LangParser;
 
 /**
  * This class provides an empty implementation of {@link LangParserVisitor},
@@ -13,7 +13,7 @@ import ru19july.bask.scene3d.Parser.antlr.LangParser;
  * @param <T> The return type of the visit operation. Use {@link Void} for
  * operations with no return type.
  */
-public class LangParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements LangParserVisitor<T> {
+public class LangParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements ru19july.bask.scene3d.parser.antlr.LangParserVisitor<T> {
 	/**
 	 * {@inheritDoc}
 	 *

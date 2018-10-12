@@ -1,6 +1,8 @@
-package ru19july.bask.scene3d.Parser;
+package ru19july.bask.scene3d.parser;
 
 import java.util.Collection;
+
+import ru19july.bask.scene3d.parser.LangMethod;
 
 public class LangClass {
     private String name;

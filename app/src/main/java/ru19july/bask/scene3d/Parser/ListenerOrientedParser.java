@@ -1,4 +1,4 @@
-package ru19july.bask.scene3d.Parser;
+package ru19july.bask.scene3d.parser;
 
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -13,9 +13,12 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import ru19july.bask.scene3d.Parser.antlr.LangLexer;
-import ru19july.bask.scene3d.Parser.antlr.LangParser;
-import ru19july.bask.scene3d.Parser.antlr.LangParserBaseListener;
+import ru19july.bask.scene3d.parser.antlr.LangLexer;
+import ru19july.bask.scene3d.parser.antlr.LangParser;
+import ru19july.bask.scene3d.parser.antlr.LangParserBaseListener;
+import ru19july.bask.scene3d.parser.LangClass;
+import ru19july.bask.scene3d.parser.LangInstruction;
+import ru19july.bask.scene3d.parser.LangMethod;
 
 public class ListenerOrientedParser {
 

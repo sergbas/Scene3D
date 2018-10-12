@@ -6,8 +6,8 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
-import ru19july.bask.scene3d.Parser.LangClass;
-import ru19july.bask.scene3d.Parser.ListenerOrientedParser;
+import ru19july.bask.scene3d.parser.LangClass;
+import ru19july.bask.scene3d.parser.ListenerOrientedParser;
 import ru19july.bask.scene3d.Parser.VisitorOrientedParser;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +40,6 @@ public class MainActivity extends AppCompatActivity {
         VisitorOrientedParser parser2 = new VisitorOrientedParser();
         LangClass parsedCode2 = parser2.parse(code);
         String json2 = gson.toJson(parsedCode2);
-        Log.d(TAG, "VisitorOrientedParser: " + json2);
+        Log.d(TAG, "VisitorOrientedParser : " + json2);
     }
 }
