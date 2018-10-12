@@ -1,5 +1,4 @@
 package ru19july.bask.scene3d.parser.antlr;
-
 // Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -26,10 +25,11 @@ public class LangParser extends Parser {
 		PLUS=33, MINUS=34, BIT_NOT=35, BIT_OR=36, BIT_AND=37, BIT_XOR=38, WS=39;
 	public static final int
 		RULE_sceneDeclaration = 0, RULE_sceneName = 1, RULE_method = 2, RULE_methodName = 3, 
-		RULE_instruction = 4, RULE_parameters = 5, RULE_any_value = 6, RULE_digits = 7;
+		RULE_instruction = 4, RULE_parameters = 5, RULE_any_value = 6, RULE_digits = 7, 
+		RULE_object3d = 8;
 	public static final String[] ruleNames = {
 		"sceneDeclaration", "sceneName", "method", "methodName", "instruction", 
-		"parameters", "any_value", "digits"
+		"parameters", "any_value", "digits", "object3d"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
@@ -102,6 +102,12 @@ public class LangParser extends Parser {
 		}
 		public TerminalNode L_CURLY_BRACE() { return getToken(LangParser.L_CURLY_BRACE, 0); }
 		public TerminalNode R_CURLY_BRACE() { return getToken(LangParser.R_CURLY_BRACE, 0); }
+		public List<Object3dContext> object3d() {
+			return getRuleContexts(Object3dContext.class);
+		}
+		public Object3dContext object3d(int i) {
+			return getRuleContext(Object3dContext.class,i);
+		}
 		public List<MethodContext> method() {
 			return getRuleContexts(MethodContext.class);
 		}
@@ -134,27 +140,41 @@ public class LangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(16);
-			match(SCENE);
-			setState(17);
-			sceneName();
 			setState(18);
+			match(SCENE);
+			setState(19);
+			sceneName();
+			setState(20);
 			match(L_CURLY_BRACE);
-			setState(22);
+			setState(25);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==ID || _la==OBJECT3D) {
 				{
-				{
-				setState(19);
-				method();
+				setState(23);
+				_errHandler.sync(this);
+				switch (_input.LA(1)) {
+				case OBJECT3D:
+					{
+					setState(21);
+					object3d();
+					}
+					break;
+				case ID:
+					{
+					setState(22);
+					method();
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
 				}
 				}
-				setState(24);
+				setState(27);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(25);
+			setState(28);
 			match(R_CURLY_BRACE);
 			}
 		}
@@ -196,7 +216,7 @@ public class LangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(27);
+			setState(30);
 			match(ID);
 			}
 		}
@@ -254,47 +274,47 @@ public class LangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(29);
+			setState(32);
 			methodName();
-			setState(35);
+			setState(38);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==LR_BRACKET) {
 				{
-				setState(30);
+				setState(33);
 				match(LR_BRACKET);
-				setState(32);
+				setState(35);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==ID || _la==DIGITS) {
 					{
-					setState(31);
+					setState(34);
 					parameters();
 					}
 				}
 
-				setState(34);
+				setState(37);
 				match(RR_BRACKET);
 				}
 			}
 
-			setState(37);
+			setState(40);
 			match(L_CURLY_BRACE);
-			setState(39); 
+			setState(42); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(38);
+				setState(41);
 				instruction();
 				}
 				}
-				setState(41); 
+				setState(44); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==ID );
-			setState(43);
+			setState(46);
 			match(R_CURLY_BRACE);
 			}
 		}
@@ -310,7 +330,6 @@ public class LangParser extends Parser {
 	}
 
 	public static class MethodNameContext extends ParserRuleContext {
-		public TerminalNode OBJECT3D() { return getToken(LangParser.OBJECT3D, 0); }
 		public TerminalNode ID() { return getToken(LangParser.ID, 0); }
 		public MethodNameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -334,19 +353,12 @@ public class LangParser extends Parser {
 	public final MethodNameContext methodName() throws RecognitionException {
 		MethodNameContext _localctx = new MethodNameContext(_ctx, getState());
 		enterRule(_localctx, 6, RULE_methodName);
-		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(45);
-			_la = _input.LA(1);
-			if ( !(_la==ID || _la==OBJECT3D) ) {
-			_errHandler.recoverInline(this);
-			}
-			else {
-				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-				_errHandler.reportMatch(this);
-				consume();
+			{
+			setState(48);
+			match(ID);
 			}
 			}
 		}
@@ -388,7 +400,7 @@ public class LangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(47);
+			setState(50);
 			match(ID);
 			}
 		}
@@ -440,25 +452,25 @@ public class LangParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(54);
+			setState(57);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(49);
+					setState(52);
 					any_value();
-					setState(50);
+					setState(53);
 					match(COMMA);
 					}
 					} 
 				}
-				setState(56);
+				setState(59);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
 			}
-			setState(57);
+			setState(60);
 			any_value();
 			}
 		}
@@ -503,18 +515,18 @@ public class LangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(61);
+			setState(64);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ID:
 				{
-				setState(59);
+				setState(62);
 				match(ID);
 				}
 				break;
 			case DIGITS:
 				{
-				setState(60);
+				setState(63);
 				digits();
 				}
 				break;
@@ -561,7 +573,7 @@ public class LangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(63);
+			setState(66);
 			match(DIGITS);
 			}
 		}
@@ -576,24 +588,100 @@ public class LangParser extends Parser {
 		return _localctx;
 	}
 
+	public static class Object3dContext extends ParserRuleContext {
+		public TerminalNode OBJECT3D() { return getToken(LangParser.OBJECT3D, 0); }
+		public TerminalNode SEMI() { return getToken(LangParser.SEMI, 0); }
+		public TerminalNode LR_BRACKET() { return getToken(LangParser.LR_BRACKET, 0); }
+		public TerminalNode RR_BRACKET() { return getToken(LangParser.RR_BRACKET, 0); }
+		public ParametersContext parameters() {
+			return getRuleContext(ParametersContext.class,0);
+		}
+		public Object3dContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_object3d; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).enterObject3d(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).exitObject3d(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof LangParserVisitor ) return ((LangParserVisitor<? extends T>)visitor).visitObject3d(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final Object3dContext object3d() throws RecognitionException {
+		Object3dContext _localctx = new Object3dContext(_ctx, getState());
+		enterRule(_localctx, 16, RULE_object3d);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(68);
+			match(OBJECT3D);
+			setState(74);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==LR_BRACKET) {
+				{
+				setState(69);
+				match(LR_BRACKET);
+				setState(71);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==ID || _la==DIGITS) {
+					{
+					setState(70);
+					parameters();
+					}
+				}
+
+				setState(73);
+				match(RR_BRACKET);
+				}
+			}
+
+			setState(76);
+			match(SEMI);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3)D\4\2\t\2\4\3\t\3"+
-		"\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\3\2\3\2\3\2\3\2\7\2\27"+
-		"\n\2\f\2\16\2\32\13\2\3\2\3\2\3\3\3\3\3\4\3\4\3\4\5\4#\n\4\3\4\5\4&\n"+
-		"\4\3\4\3\4\6\4*\n\4\r\4\16\4+\3\4\3\4\3\5\3\5\3\6\3\6\3\7\3\7\3\7\7\7"+
-		"\67\n\7\f\7\16\7:\13\7\3\7\3\7\3\b\3\b\5\b@\n\b\3\t\3\t\3\t\2\2\n\2\4"+
-		"\6\b\n\f\16\20\2\3\3\2\4\5\2A\2\22\3\2\2\2\4\35\3\2\2\2\6\37\3\2\2\2\b"+
-		"/\3\2\2\2\n\61\3\2\2\2\f8\3\2\2\2\16?\3\2\2\2\20A\3\2\2\2\22\23\7\3\2"+
-		"\2\23\24\5\4\3\2\24\30\7\b\2\2\25\27\5\6\4\2\26\25\3\2\2\2\27\32\3\2\2"+
-		"\2\30\26\3\2\2\2\30\31\3\2\2\2\31\33\3\2\2\2\32\30\3\2\2\2\33\34\7\t\2"+
-		"\2\34\3\3\2\2\2\35\36\7\4\2\2\36\5\3\2\2\2\37%\5\b\5\2 \"\7\33\2\2!#\5"+
-		"\f\7\2\"!\3\2\2\2\"#\3\2\2\2#$\3\2\2\2$&\7\34\2\2% \3\2\2\2%&\3\2\2\2"+
-		"&\'\3\2\2\2\')\7\b\2\2(*\5\n\6\2)(\3\2\2\2*+\3\2\2\2+)\3\2\2\2+,\3\2\2"+
-		"\2,-\3\2\2\2-.\7\t\2\2.\7\3\2\2\2/\60\t\2\2\2\60\t\3\2\2\2\61\62\7\4\2"+
-		"\2\62\13\3\2\2\2\63\64\5\16\b\2\64\65\7\35\2\2\65\67\3\2\2\2\66\63\3\2"+
-		"\2\2\67:\3\2\2\28\66\3\2\2\289\3\2\2\29;\3\2\2\2:8\3\2\2\2;<\5\16\b\2"+
-		"<\r\3\2\2\2=@\7\4\2\2>@\5\20\t\2?=\3\2\2\2?>\3\2\2\2@\17\3\2\2\2AB\7\7"+
-		"\2\2B\21\3\2\2\2\b\30\"%+8?";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3)Q\4\2\t\2\4\3\t\3"+
+		"\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\3\2\3\2\3\2\3"+
+		"\2\3\2\7\2\32\n\2\f\2\16\2\35\13\2\3\2\3\2\3\3\3\3\3\4\3\4\3\4\5\4&\n"+
+		"\4\3\4\5\4)\n\4\3\4\3\4\6\4-\n\4\r\4\16\4.\3\4\3\4\3\5\3\5\3\6\3\6\3\7"+
+		"\3\7\3\7\7\7:\n\7\f\7\16\7=\13\7\3\7\3\7\3\b\3\b\5\bC\n\b\3\t\3\t\3\n"+
+		"\3\n\3\n\5\nJ\n\n\3\n\5\nM\n\n\3\n\3\n\3\n\2\2\13\2\4\6\b\n\f\16\20\22"+
+		"\2\2\2P\2\24\3\2\2\2\4 \3\2\2\2\6\"\3\2\2\2\b\62\3\2\2\2\n\64\3\2\2\2"+
+		"\f;\3\2\2\2\16B\3\2\2\2\20D\3\2\2\2\22F\3\2\2\2\24\25\7\3\2\2\25\26\5"+
+		"\4\3\2\26\33\7\b\2\2\27\32\5\22\n\2\30\32\5\6\4\2\31\27\3\2\2\2\31\30"+
+		"\3\2\2\2\32\35\3\2\2\2\33\31\3\2\2\2\33\34\3\2\2\2\34\36\3\2\2\2\35\33"+
+		"\3\2\2\2\36\37\7\t\2\2\37\3\3\2\2\2 !\7\4\2\2!\5\3\2\2\2\"(\5\b\5\2#%"+
+		"\7\33\2\2$&\5\f\7\2%$\3\2\2\2%&\3\2\2\2&\'\3\2\2\2\')\7\34\2\2(#\3\2\2"+
+		"\2()\3\2\2\2)*\3\2\2\2*,\7\b\2\2+-\5\n\6\2,+\3\2\2\2-.\3\2\2\2.,\3\2\2"+
+		"\2./\3\2\2\2/\60\3\2\2\2\60\61\7\t\2\2\61\7\3\2\2\2\62\63\7\4\2\2\63\t"+
+		"\3\2\2\2\64\65\7\4\2\2\65\13\3\2\2\2\66\67\5\16\b\2\678\7\35\2\28:\3\2"+
+		"\2\29\66\3\2\2\2:=\3\2\2\2;9\3\2\2\2;<\3\2\2\2<>\3\2\2\2=;\3\2\2\2>?\5"+
+		"\16\b\2?\r\3\2\2\2@C\7\4\2\2AC\5\20\t\2B@\3\2\2\2BA\3\2\2\2C\17\3\2\2"+
+		"\2DE\7\7\2\2E\21\3\2\2\2FL\7\5\2\2GI\7\33\2\2HJ\5\f\7\2IH\3\2\2\2IJ\3"+
+		"\2\2\2JK\3\2\2\2KM\7\34\2\2LG\3\2\2\2LM\3\2\2\2MN\3\2\2\2NO\7\36\2\2O"+
+		"\23\3\2\2\2\13\31\33%(.;BIL";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

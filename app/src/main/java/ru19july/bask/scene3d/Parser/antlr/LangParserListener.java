@@ -1,5 +1,4 @@
 package ru19july.bask.scene3d.parser.antlr;
-
 // Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -88,4 +87,14 @@ public interface LangParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDigits(LangParser.DigitsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LangParser#object3d}.
+	 * @param ctx the parse tree
+	 */
+	void enterObject3d(LangParser.Object3dContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LangParser#object3d}.
+	 * @param ctx the parse tree
+	 */
+	void exitObject3d(LangParser.Object3dContext ctx);
 }

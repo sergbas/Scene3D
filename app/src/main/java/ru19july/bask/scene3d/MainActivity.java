@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         String code = "scene MyScene {\n" +
                 "    start(){start}\n" +
+                "    cylinder(100, 200, 50);" +
                 "    sphere(128, 256, 10) {\n" +
                 "        drawSphere\n" +
                 "        invalidate\n" +
