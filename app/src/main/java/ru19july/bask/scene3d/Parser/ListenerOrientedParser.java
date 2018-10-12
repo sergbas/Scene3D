@@ -61,14 +61,39 @@ public class ListenerOrientedParser {
         @Override
         public void enterMethod(@NotNull LangParser.MethodContext ctx) {
             String methodName = ctx.methodName().getText();
+
+            ParameterListener parameterListener = new ParameterListener();
+            ctx.parametrized().enterRule(parameterListener);
+            Collection<LangParameter> parameters = parameterListener.getParameters();
+
             InstructionListener instructionListener = new InstructionListener();
             ctx.instruction().forEach(instruction -> instruction.enterRule(instructionListener));
             Collection<LangInstruction> instructions = instructionListener.getInstructions();
+
             methods.add(new LangMethod(methodName, instructions));
         }
 
         public Collection<LangMethod> getMethods() {
             return methods;
+        }
+    }
+
+    class ParameterListener extends LangParserBaseListener {
+
+        private Collection<LangParameter> parameters;
+
+        public ParameterListener() {
+            parameters = new ArrayList<>();
+        }
+
+        @Override
+        public void enterParameters(@NotNull LangParser.ParametersContext ctx) {
+            String instructionName = ctx.getText();
+            parameters.add(new LangParameter(instructionName));
+        }
+
+        public Collection<LangParameter> getParameters() {
+            return parameters;
         }
     }
 
