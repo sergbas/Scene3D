@@ -24,11 +24,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         String code = "class Sphere {\n" +
-                "    draw {\n" +
+                "    start(){start}\n" +
+                "    draw(ZZZ) {\n" +
                 "        drawSphere\n" +
                 "        invalidate\n" +
                 "    }\n" +
-                "    move {\n" +
+                "    move(toX, toY) {\n" +
                 "        updateCoordinates\n" +
                 "        swapBuffers\n" +
                 "        draw\n" +

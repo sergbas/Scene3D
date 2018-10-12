@@ -26,9 +26,10 @@ public class LangParser extends Parser {
 		BIT_NOT=33, BIT_OR=34, BIT_AND=35, BIT_XOR=36, WS=37;
 	public static final int
 		RULE_classDeclaration = 0, RULE_className = 1, RULE_method = 2, RULE_methodName = 3, 
-		RULE_instruction = 4;
+		RULE_instruction = 4, RULE_parametrized = 5, RULE_parameters = 6;
 	public static final String[] ruleNames = {
-		"classDeclaration", "className", "method", "methodName", "instruction"
+		"classDeclaration", "className", "method", "methodName", "instruction", 
+		"parametrized", "parameters"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
@@ -113,15 +114,15 @@ public class LangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_classDeclaration; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).enterClassDeclaration(this);
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).enterClassDeclaration(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).exitClassDeclaration(this);
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).exitClassDeclaration(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ru19july.bask.scene3d.parser.antlr.LangParserVisitor) return ((ru19july.bask.scene3d.parser.antlr.LangParserVisitor<? extends T>)visitor).visitClassDeclaration(this);
+			if ( visitor instanceof LangParserVisitor ) return ((LangParserVisitor<? extends T>)visitor).visitClassDeclaration(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -133,27 +134,27 @@ public class LangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(10);
+			setState(14);
 			match(CLASS);
-			setState(11);
+			setState(15);
 			className();
-			setState(12);
-			match(L_CURLY_BRACE);
 			setState(16);
+			match(L_CURLY_BRACE);
+			setState(20);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==ID) {
 				{
 				{
-				setState(13);
+				setState(17);
 				method();
 				}
 				}
-				setState(18);
+				setState(22);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(19);
+			setState(23);
 			match(R_CURLY_BRACE);
 			}
 		}
@@ -176,15 +177,15 @@ public class LangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_className; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).enterClassName(this);
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).enterClassName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).exitClassName(this);
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).exitClassName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ru19july.bask.scene3d.parser.antlr.LangParserVisitor) return ((ru19july.bask.scene3d.parser.antlr.LangParserVisitor<? extends T>)visitor).visitClassName(this);
+			if ( visitor instanceof LangParserVisitor ) return ((LangParserVisitor<? extends T>)visitor).visitClassName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -195,7 +196,7 @@ public class LangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(21);
+			setState(25);
 			match(ID);
 			}
 		}
@@ -216,6 +217,9 @@ public class LangParser extends Parser {
 		}
 		public TerminalNode L_CURLY_BRACE() { return getToken(LangParser.L_CURLY_BRACE, 0); }
 		public TerminalNode R_CURLY_BRACE() { return getToken(LangParser.R_CURLY_BRACE, 0); }
+		public ParametrizedContext parametrized() {
+			return getRuleContext(ParametrizedContext.class,0);
+		}
 		public List<InstructionContext> instruction() {
 			return getRuleContexts(InstructionContext.class);
 		}
@@ -228,15 +232,15 @@ public class LangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_method; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).enterMethod(this);
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).enterMethod(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).exitMethod(this);
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).exitMethod(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ru19july.bask.scene3d.parser.antlr.LangParserVisitor) return ((ru19july.bask.scene3d.parser.antlr.LangParserVisitor<? extends T>)visitor).visitMethod(this);
+			if ( visitor instanceof LangParserVisitor ) return ((LangParserVisitor<? extends T>)visitor).visitMethod(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -248,25 +252,35 @@ public class LangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(23);
+			setState(27);
 			methodName();
-			setState(24);
+			setState(29);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==LR_BRACKET) {
+				{
+				setState(28);
+				parametrized();
+				}
+			}
+
+			setState(31);
 			match(L_CURLY_BRACE);
-			setState(26); 
+			setState(33); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(25);
+				setState(32);
 				instruction();
 				}
 				}
-				setState(28); 
+				setState(35); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==ID );
-			setState(30);
+			setState(37);
 			match(R_CURLY_BRACE);
 			}
 		}
@@ -289,15 +303,15 @@ public class LangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_methodName; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).enterMethodName(this);
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).enterMethodName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).exitMethodName(this);
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).exitMethodName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ru19july.bask.scene3d.parser.antlr.LangParserVisitor) return ((ru19july.bask.scene3d.parser.antlr.LangParserVisitor<? extends T>)visitor).visitMethodName(this);
+			if ( visitor instanceof LangParserVisitor ) return ((LangParserVisitor<? extends T>)visitor).visitMethodName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -308,7 +322,7 @@ public class LangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(32);
+			setState(39);
 			match(ID);
 			}
 		}
@@ -331,15 +345,15 @@ public class LangParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_instruction; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).enterInstruction(this);
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).enterInstruction(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ru19july.bask.scene3d.parser.antlr.LangParserListener) ((ru19july.bask.scene3d.parser.antlr.LangParserListener)listener).exitInstruction(this);
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).exitInstruction(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ru19july.bask.scene3d.parser.antlr.LangParserVisitor) return ((ru19july.bask.scene3d.parser.antlr.LangParserVisitor<? extends T>)visitor).visitInstruction(this);
+			if ( visitor instanceof LangParserVisitor ) return ((LangParserVisitor<? extends T>)visitor).visitInstruction(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -350,7 +364,7 @@ public class LangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(34);
+			setState(41);
 			match(ID);
 			}
 		}
@@ -365,17 +379,163 @@ public class LangParser extends Parser {
 		return _localctx;
 	}
 
+	public static class ParametrizedContext extends ParserRuleContext {
+		public TerminalNode LR_BRACKET() { return getToken(LangParser.LR_BRACKET, 0); }
+		public TerminalNode RR_BRACKET() { return getToken(LangParser.RR_BRACKET, 0); }
+		public ParametersContext parameters() {
+			return getRuleContext(ParametersContext.class,0);
+		}
+		public ParametrizedContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_parametrized; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).enterParametrized(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).exitParametrized(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof LangParserVisitor ) return ((LangParserVisitor<? extends T>)visitor).visitParametrized(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final ParametrizedContext parametrized() throws RecognitionException {
+		ParametrizedContext _localctx = new ParametrizedContext(_ctx, getState());
+		enterRule(_localctx, 10, RULE_parametrized);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(43);
+			match(LR_BRACKET);
+			setState(45);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==ID) {
+				{
+				setState(44);
+				parameters();
+				}
+			}
+
+			setState(47);
+			match(RR_BRACKET);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class ParametersContext extends ParserRuleContext {
+		public List<TerminalNode> ID() { return getTokens(LangParser.ID); }
+		public TerminalNode ID(int i) {
+			return getToken(LangParser.ID, i);
+		}
+		public List<TerminalNode> COMMA() { return getTokens(LangParser.COMMA); }
+		public TerminalNode COMMA(int i) {
+			return getToken(LangParser.COMMA, i);
+		}
+		public ParametersContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_parameters; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).enterParameters(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).exitParameters(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof LangParserVisitor ) return ((LangParserVisitor<? extends T>)visitor).visitParameters(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final ParametersContext parameters() throws RecognitionException {
+		ParametersContext _localctx = new ParametersContext(_ctx, getState());
+		enterRule(_localctx, 12, RULE_parameters);
+		try {
+			int _alt;
+			setState(58);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(49);
+				match(ID);
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(54);
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+				while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+					if ( _alt==1 ) {
+						{
+						{
+						setState(50);
+						match(ID);
+						setState(51);
+						match(COMMA);
+						}
+						} 
+					}
+					setState(56);
+					_errHandler.sync(this);
+					_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+				}
+				setState(57);
+				match(ID);
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\'\'\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\2\3\2\7\2\21\n\2\f\2\16\2\24\13\2"+
-		"\3\2\3\2\3\3\3\3\3\4\3\4\3\4\6\4\35\n\4\r\4\16\4\36\3\4\3\4\3\5\3\5\3"+
-		"\6\3\6\3\6\2\2\7\2\4\6\b\n\2\2\2#\2\f\3\2\2\2\4\27\3\2\2\2\6\31\3\2\2"+
-		"\2\b\"\3\2\2\2\n$\3\2\2\2\f\r\7\3\2\2\r\16\5\4\3\2\16\22\7\6\2\2\17\21"+
-		"\5\6\4\2\20\17\3\2\2\2\21\24\3\2\2\2\22\20\3\2\2\2\22\23\3\2\2\2\23\25"+
-		"\3\2\2\2\24\22\3\2\2\2\25\26\7\7\2\2\26\3\3\2\2\2\27\30\7\4\2\2\30\5\3"+
-		"\2\2\2\31\32\5\b\5\2\32\34\7\6\2\2\33\35\5\n\6\2\34\33\3\2\2\2\35\36\3"+
-		"\2\2\2\36\34\3\2\2\2\36\37\3\2\2\2\37 \3\2\2\2 !\7\7\2\2!\7\3\2\2\2\""+
-		"#\7\4\2\2#\t\3\2\2\2$%\7\4\2\2%\13\3\2\2\2\4\22\36";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\'?\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\3\2\3\2\3\2\7\2\25\n\2"+
+		"\f\2\16\2\30\13\2\3\2\3\2\3\3\3\3\3\4\3\4\5\4 \n\4\3\4\3\4\6\4$\n\4\r"+
+		"\4\16\4%\3\4\3\4\3\5\3\5\3\6\3\6\3\7\3\7\5\7\60\n\7\3\7\3\7\3\b\3\b\3"+
+		"\b\7\b\67\n\b\f\b\16\b:\13\b\3\b\5\b=\n\b\3\b\2\2\t\2\4\6\b\n\f\16\2\2"+
+		"\2=\2\20\3\2\2\2\4\33\3\2\2\2\6\35\3\2\2\2\b)\3\2\2\2\n+\3\2\2\2\f-\3"+
+		"\2\2\2\16<\3\2\2\2\20\21\7\3\2\2\21\22\5\4\3\2\22\26\7\6\2\2\23\25\5\6"+
+		"\4\2\24\23\3\2\2\2\25\30\3\2\2\2\26\24\3\2\2\2\26\27\3\2\2\2\27\31\3\2"+
+		"\2\2\30\26\3\2\2\2\31\32\7\7\2\2\32\3\3\2\2\2\33\34\7\4\2\2\34\5\3\2\2"+
+		"\2\35\37\5\b\5\2\36 \5\f\7\2\37\36\3\2\2\2\37 \3\2\2\2 !\3\2\2\2!#\7\6"+
+		"\2\2\"$\5\n\6\2#\"\3\2\2\2$%\3\2\2\2%#\3\2\2\2%&\3\2\2\2&\'\3\2\2\2\'"+
+		"(\7\7\2\2(\7\3\2\2\2)*\7\4\2\2*\t\3\2\2\2+,\7\4\2\2,\13\3\2\2\2-/\7\31"+
+		"\2\2.\60\5\16\b\2/.\3\2\2\2/\60\3\2\2\2\60\61\3\2\2\2\61\62\7\32\2\2\62"+
+		"\r\3\2\2\2\63=\7\4\2\2\64\65\7\4\2\2\65\67\7\33\2\2\66\64\3\2\2\2\67:"+
+		"\3\2\2\28\66\3\2\2\289\3\2\2\29;\3\2\2\2:8\3\2\2\2;=\7\4\2\2<\63\3\2\2"+
+		"\2<8\3\2\2\2=\17\3\2\2\2\b\26\37%/8<";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

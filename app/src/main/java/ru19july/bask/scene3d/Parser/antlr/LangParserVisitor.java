@@ -3,8 +3,6 @@ package ru19july.bask.scene3d.parser.antlr;
 // Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
-import ru19july.bask.scene3d.parser.antlr.LangParser;
-
 /**
  * This interface defines a complete generic visitor for a parse tree produced
  * by {@link LangParser}.
@@ -43,4 +41,16 @@ public interface LangParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitInstruction(LangParser.InstructionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LangParser#parametrized}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParametrized(LangParser.ParametrizedContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LangParser#parameters}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParameters(LangParser.ParametersContext ctx);
 }

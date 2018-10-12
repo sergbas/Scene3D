@@ -1,4 +1,5 @@
 package ru19july.bask.scene3d.parser.antlr;
+
 // Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -71,6 +72,30 @@ public class LangParserBaseListener implements LangParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitInstruction(LangParser.InstructionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterParametrized(LangParser.ParametrizedContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitParametrized(LangParser.ParametrizedContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterParameters(LangParser.ParametersContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitParameters(LangParser.ParametersContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
