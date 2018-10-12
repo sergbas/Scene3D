@@ -7,5 +7,7 @@ className : ID ;
 method : methodName (LR_BRACKET (parameters)? RR_BRACKET)? L_CURLY_BRACE (instruction)+ R_CURLY_BRACE ;
 methodName : ID ;
 instruction : ID ;
-parameters : (ID COMMA)* ID ;
+parameters : (any_value COMMA)* any_value ;
+any_value : ( ID | digits) ;
+digits : DIGITS ;
 

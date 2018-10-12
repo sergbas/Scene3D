@@ -3,6 +3,7 @@ lexer grammar LangLexer;
 CLASS : 'class' ;
 ID : [a-zA-Z0-9]+ ;
 EQUAL:               '=';
+DIGITS : [0-9]+ ;
 
 L_CURLY_BRACE : '{' ;
 R_CURLY_BRACE : '}' ;

@@ -1,9 +1,6 @@
 package ru19july.bask.scene3d.parser.antlr;
-
 // Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
-
-import ru19july.bask.scene3d.parser.antlr.LangParser;
 
 /**
  * This class provides an empty implementation of {@link LangParserVisitor},
@@ -56,4 +53,18 @@ public class LangParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitParameters(LangParser.ParametersContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitAny_value(LangParser.Any_valueContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitDigits(LangParser.DigitsContext ctx) { return visitChildren(ctx); }
 }

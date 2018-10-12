@@ -1,5 +1,4 @@
 package ru19july.bask.scene3d.parser.antlr;
-
 // Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -18,33 +17,33 @@ public class LangParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		CLASS=1, ID=2, EQUAL=3, L_CURLY_BRACE=4, R_CURLY_BRACE=5, GREATER=6, LESS=7, 
-		EXCLAMATION=8, PLUS_ASSIGN=9, MINUS_ASSIGN=10, MULT_ASSIGN=11, DIV_ASSIGN=12, 
-		MOD_ASSIGN=13, AND_ASSIGN=14, XOR_ASSIGN=15, OR_ASSIGN=16, DOUBLE_BAR=17, 
-		DOT=18, UNDERLINE=19, AT=20, SHARP=21, DOLLAR=22, LR_BRACKET=23, RR_BRACKET=24, 
-		COMMA=25, SEMI=26, COLON=27, STAR=28, DIVIDE=29, MODULE=30, PLUS=31, MINUS=32, 
-		BIT_NOT=33, BIT_OR=34, BIT_AND=35, BIT_XOR=36, WS=37;
+		CLASS=1, ID=2, EQUAL=3, DIGITS=4, L_CURLY_BRACE=5, R_CURLY_BRACE=6, GREATER=7, 
+		LESS=8, EXCLAMATION=9, PLUS_ASSIGN=10, MINUS_ASSIGN=11, MULT_ASSIGN=12, 
+		DIV_ASSIGN=13, MOD_ASSIGN=14, AND_ASSIGN=15, XOR_ASSIGN=16, OR_ASSIGN=17, 
+		DOUBLE_BAR=18, DOT=19, UNDERLINE=20, AT=21, SHARP=22, DOLLAR=23, LR_BRACKET=24, 
+		RR_BRACKET=25, COMMA=26, SEMI=27, COLON=28, STAR=29, DIVIDE=30, MODULE=31, 
+		PLUS=32, MINUS=33, BIT_NOT=34, BIT_OR=35, BIT_AND=36, BIT_XOR=37, WS=38;
 	public static final int
 		RULE_classDeclaration = 0, RULE_className = 1, RULE_method = 2, RULE_methodName = 3, 
-		RULE_instruction = 4, RULE_parameters = 5;
+		RULE_instruction = 4, RULE_parameters = 5, RULE_any_value = 6, RULE_digits = 7;
 	public static final String[] ruleNames = {
 		"classDeclaration", "className", "method", "methodName", "instruction", 
-		"parameters"
+		"parameters", "any_value", "digits"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'class'", null, "'='", "'{'", "'}'", "'>'", "'<'", "'!'", "'+='", 
-		"'-='", "'*='", "'/='", "'%='", "'&='", "'^='", "'|='", "'||'", "'.'", 
-		"'_'", "'@'", "'#'", "'$'", "'('", "')'", "','", "';'", "':'", "'*'", 
-		"'/'", "'%'", "'+'", "'-'", "'~'", "'|'", "'&'", "'^'"
+		null, "'class'", null, "'='", null, "'{'", "'}'", "'>'", "'<'", "'!'", 
+		"'+='", "'-='", "'*='", "'/='", "'%='", "'&='", "'^='", "'|='", "'||'", 
+		"'.'", "'_'", "'@'", "'#'", "'$'", "'('", "')'", "','", "';'", "':'", 
+		"'*'", "'/'", "'%'", "'+'", "'-'", "'~'", "'|'", "'&'", "'^'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "CLASS", "ID", "EQUAL", "L_CURLY_BRACE", "R_CURLY_BRACE", "GREATER", 
-		"LESS", "EXCLAMATION", "PLUS_ASSIGN", "MINUS_ASSIGN", "MULT_ASSIGN", "DIV_ASSIGN", 
-		"MOD_ASSIGN", "AND_ASSIGN", "XOR_ASSIGN", "OR_ASSIGN", "DOUBLE_BAR", "DOT", 
-		"UNDERLINE", "AT", "SHARP", "DOLLAR", "LR_BRACKET", "RR_BRACKET", "COMMA", 
-		"SEMI", "COLON", "STAR", "DIVIDE", "MODULE", "PLUS", "MINUS", "BIT_NOT", 
-		"BIT_OR", "BIT_AND", "BIT_XOR", "WS"
+		null, "CLASS", "ID", "EQUAL", "DIGITS", "L_CURLY_BRACE", "R_CURLY_BRACE", 
+		"GREATER", "LESS", "EXCLAMATION", "PLUS_ASSIGN", "MINUS_ASSIGN", "MULT_ASSIGN", 
+		"DIV_ASSIGN", "MOD_ASSIGN", "AND_ASSIGN", "XOR_ASSIGN", "OR_ASSIGN", "DOUBLE_BAR", 
+		"DOT", "UNDERLINE", "AT", "SHARP", "DOLLAR", "LR_BRACKET", "RR_BRACKET", 
+		"COMMA", "SEMI", "COLON", "STAR", "DIVIDE", "MODULE", "PLUS", "MINUS", 
+		"BIT_NOT", "BIT_OR", "BIT_AND", "BIT_XOR", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -134,27 +133,27 @@ public class LangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(12);
+			setState(16);
 			match(CLASS);
-			setState(13);
+			setState(17);
 			className();
-			setState(14);
-			match(L_CURLY_BRACE);
 			setState(18);
+			match(L_CURLY_BRACE);
+			setState(22);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==ID) {
 				{
 				{
-				setState(15);
+				setState(19);
 				method();
 				}
 				}
-				setState(20);
+				setState(24);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(21);
+			setState(25);
 			match(R_CURLY_BRACE);
 			}
 		}
@@ -196,7 +195,7 @@ public class LangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(23);
+			setState(27);
 			match(ID);
 			}
 		}
@@ -254,47 +253,47 @@ public class LangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(25);
+			setState(29);
 			methodName();
-			setState(31);
+			setState(35);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==LR_BRACKET) {
 				{
-				setState(26);
+				setState(30);
 				match(LR_BRACKET);
-				setState(28);
+				setState(32);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if (_la==ID) {
+				if (_la==ID || _la==DIGITS) {
 					{
-					setState(27);
+					setState(31);
 					parameters();
 					}
 				}
 
-				setState(30);
+				setState(34);
 				match(RR_BRACKET);
 				}
 			}
 
-			setState(33);
+			setState(37);
 			match(L_CURLY_BRACE);
-			setState(35); 
+			setState(39); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(34);
+				setState(38);
 				instruction();
 				}
 				}
-				setState(37); 
+				setState(41); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==ID );
-			setState(39);
+			setState(43);
 			match(R_CURLY_BRACE);
 			}
 		}
@@ -336,7 +335,7 @@ public class LangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(41);
+			setState(45);
 			match(ID);
 			}
 		}
@@ -378,7 +377,7 @@ public class LangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(43);
+			setState(47);
 			match(ID);
 			}
 		}
@@ -394,9 +393,11 @@ public class LangParser extends Parser {
 	}
 
 	public static class ParametersContext extends ParserRuleContext {
-		public List<TerminalNode> ID() { return getTokens(LangParser.ID); }
-		public TerminalNode ID(int i) {
-			return getToken(LangParser.ID, i);
+		public List<Any_valueContext> any_value() {
+			return getRuleContexts(Any_valueContext.class);
+		}
+		public Any_valueContext any_value(int i) {
+			return getRuleContext(Any_valueContext.class,i);
 		}
 		public List<TerminalNode> COMMA() { return getTokens(LangParser.COMMA); }
 		public TerminalNode COMMA(int i) {
@@ -428,26 +429,129 @@ public class LangParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(49);
+			setState(54);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(45);
-					match(ID);
-					setState(46);
+					setState(49);
+					any_value();
+					setState(50);
 					match(COMMA);
 					}
 					} 
 				}
-				setState(51);
+				setState(56);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			}
-			setState(52);
-			match(ID);
+			setState(57);
+			any_value();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Any_valueContext extends ParserRuleContext {
+		public TerminalNode ID() { return getToken(LangParser.ID, 0); }
+		public DigitsContext digits() {
+			return getRuleContext(DigitsContext.class,0);
+		}
+		public Any_valueContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_any_value; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).enterAny_value(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).exitAny_value(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof LangParserVisitor ) return ((LangParserVisitor<? extends T>)visitor).visitAny_value(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final Any_valueContext any_value() throws RecognitionException {
+		Any_valueContext _localctx = new Any_valueContext(_ctx, getState());
+		enterRule(_localctx, 12, RULE_any_value);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(61);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case ID:
+				{
+				setState(59);
+				match(ID);
+				}
+				break;
+			case DIGITS:
+				{
+				setState(60);
+				digits();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class DigitsContext extends ParserRuleContext {
+		public TerminalNode DIGITS() { return getToken(LangParser.DIGITS, 0); }
+		public DigitsContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_digits; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).enterDigits(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LangParserListener ) ((LangParserListener)listener).exitDigits(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof LangParserVisitor ) return ((LangParserVisitor<? extends T>)visitor).visitDigits(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final DigitsContext digits() throws RecognitionException {
+		DigitsContext _localctx = new DigitsContext(_ctx, getState());
+		enterRule(_localctx, 14, RULE_digits);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(63);
+			match(DIGITS);
 			}
 		}
 		catch (RecognitionException re) {
@@ -462,21 +566,23 @@ public class LangParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\'9\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2\3\2\3\2\3\2\7\2\23\n\2\f\2\16\2"+
-		"\26\13\2\3\2\3\2\3\3\3\3\3\4\3\4\3\4\5\4\37\n\4\3\4\5\4\"\n\4\3\4\3\4"+
-		"\6\4&\n\4\r\4\16\4\'\3\4\3\4\3\5\3\5\3\6\3\6\3\7\3\7\7\7\62\n\7\f\7\16"+
-		"\7\65\13\7\3\7\3\7\3\7\2\2\b\2\4\6\b\n\f\2\2\2\67\2\16\3\2\2\2\4\31\3"+
-		"\2\2\2\6\33\3\2\2\2\b+\3\2\2\2\n-\3\2\2\2\f\63\3\2\2\2\16\17\7\3\2\2\17"+
-		"\20\5\4\3\2\20\24\7\6\2\2\21\23\5\6\4\2\22\21\3\2\2\2\23\26\3\2\2\2\24"+
-		"\22\3\2\2\2\24\25\3\2\2\2\25\27\3\2\2\2\26\24\3\2\2\2\27\30\7\7\2\2\30"+
-		"\3\3\2\2\2\31\32\7\4\2\2\32\5\3\2\2\2\33!\5\b\5\2\34\36\7\31\2\2\35\37"+
-		"\5\f\7\2\36\35\3\2\2\2\36\37\3\2\2\2\37 \3\2\2\2 \"\7\32\2\2!\34\3\2\2"+
-		"\2!\"\3\2\2\2\"#\3\2\2\2#%\7\6\2\2$&\5\n\6\2%$\3\2\2\2&\'\3\2\2\2\'%\3"+
-		"\2\2\2\'(\3\2\2\2()\3\2\2\2)*\7\7\2\2*\7\3\2\2\2+,\7\4\2\2,\t\3\2\2\2"+
-		"-.\7\4\2\2.\13\3\2\2\2/\60\7\4\2\2\60\62\7\33\2\2\61/\3\2\2\2\62\65\3"+
-		"\2\2\2\63\61\3\2\2\2\63\64\3\2\2\2\64\66\3\2\2\2\65\63\3\2\2\2\66\67\7"+
-		"\4\2\2\67\r\3\2\2\2\7\24\36!\'\63";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3(D\4\2\t\2\4\3\t\3"+
+		"\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\3\2\3\2\3\2\3\2\7\2\27"+
+		"\n\2\f\2\16\2\32\13\2\3\2\3\2\3\3\3\3\3\4\3\4\3\4\5\4#\n\4\3\4\5\4&\n"+
+		"\4\3\4\3\4\6\4*\n\4\r\4\16\4+\3\4\3\4\3\5\3\5\3\6\3\6\3\7\3\7\3\7\7\7"+
+		"\67\n\7\f\7\16\7:\13\7\3\7\3\7\3\b\3\b\5\b@\n\b\3\t\3\t\3\t\2\2\n\2\4"+
+		"\6\b\n\f\16\20\2\2\2A\2\22\3\2\2\2\4\35\3\2\2\2\6\37\3\2\2\2\b/\3\2\2"+
+		"\2\n\61\3\2\2\2\f8\3\2\2\2\16?\3\2\2\2\20A\3\2\2\2\22\23\7\3\2\2\23\24"+
+		"\5\4\3\2\24\30\7\7\2\2\25\27\5\6\4\2\26\25\3\2\2\2\27\32\3\2\2\2\30\26"+
+		"\3\2\2\2\30\31\3\2\2\2\31\33\3\2\2\2\32\30\3\2\2\2\33\34\7\b\2\2\34\3"+
+		"\3\2\2\2\35\36\7\4\2\2\36\5\3\2\2\2\37%\5\b\5\2 \"\7\32\2\2!#\5\f\7\2"+
+		"\"!\3\2\2\2\"#\3\2\2\2#$\3\2\2\2$&\7\33\2\2% \3\2\2\2%&\3\2\2\2&\'\3\2"+
+		"\2\2\')\7\7\2\2(*\5\n\6\2)(\3\2\2\2*+\3\2\2\2+)\3\2\2\2+,\3\2\2\2,-\3"+
+		"\2\2\2-.\7\b\2\2.\7\3\2\2\2/\60\7\4\2\2\60\t\3\2\2\2\61\62\7\4\2\2\62"+
+		"\13\3\2\2\2\63\64\5\16\b\2\64\65\7\34\2\2\65\67\3\2\2\2\66\63\3\2\2\2"+
+		"\67:\3\2\2\28\66\3\2\2\289\3\2\2\29;\3\2\2\2:8\3\2\2\2;<\5\16\b\2<\r\3"+
+		"\2\2\2=@\7\4\2\2>@\5\20\t\2?=\3\2\2\2?>\3\2\2\2@\17\3\2\2\2AB\7\6\2\2"+
+		"B\21\3\2\2\2\b\30\"%+8?";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

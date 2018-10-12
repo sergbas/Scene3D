@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         String code = "class Sphere {\n" +
                 "    start(){start}\n" +
-                "    draw(ZZZ) {\n" +
+                "    draw(128, 256) {\n" +
                 "        drawSphere\n" +
                 "        invalidate\n" +
                 "    }\n" +
