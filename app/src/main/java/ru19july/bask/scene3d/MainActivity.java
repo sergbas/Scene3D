@@ -6,7 +6,11 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
+import java.util.List;
+
 import ru19july.bask.scene3d.parser.LangClass;
+import ru19july.bask.scene3d.parser.LangInstruction;
+import ru19july.bask.scene3d.parser.LangMethod;
 import ru19july.bask.scene3d.parser.ListenerOrientedParser;
 import ru19july.bask.scene3d.Parser.VisitorOrientedParser;
 
@@ -42,5 +46,21 @@ public class MainActivity extends AppCompatActivity {
         LangClass parsedCode2 = parser2.parse(code);
         String json2 = gson.toJson(parsedCode2);
         Log.d(TAG, "VisitorOrientedParser : " + json2);
+
+        executeCode(parsedCode1);
+    }
+
+    private void executeCode(LangClass langClass) {
+        Log.d(TAG, "executeCode: " + langClass.getName());
+        List<LangMethod> methods = langClass.getMethods();
+        for(LangMethod method : methods){
+            Log.d(TAG, "-method: " + method.getName());
+
+            List<LangInstruction> instructions = method.getInstructions();
+
+            for (LangInstruction instruction : instructions){
+                Log.d(TAG, "--instruction: " + instruction.getName());
+            }
+        }
     }
 }

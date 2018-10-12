@@ -1,8 +1,7 @@
 package ru19july.bask.scene3d.parser;
 
 import java.util.Collection;
-
-import ru19july.bask.scene3d.parser.LangInstruction;
+import java.util.List;
 
 public class LangMethod {
     private String name;
@@ -12,4 +11,17 @@ public class LangMethod {
         name = methodName;
         this.instructions = instructions;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<LangInstruction> getInstructions() {
+        return (List<LangInstruction>) instructions;
+    }
+
 }

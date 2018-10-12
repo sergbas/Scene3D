@@ -6,4 +6,8 @@ public class LangInstruction {
     public LangInstruction(String instructionName) {
         name = instructionName;
     }
+
+    public String getName() {
+        return name;
+    }
 }

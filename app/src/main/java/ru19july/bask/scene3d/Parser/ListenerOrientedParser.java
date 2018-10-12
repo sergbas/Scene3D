@@ -16,9 +16,6 @@ import java.util.Collection;
 import ru19july.bask.scene3d.parser.antlr.LangLexer;
 import ru19july.bask.scene3d.parser.antlr.LangParser;
 import ru19july.bask.scene3d.parser.antlr.LangParserBaseListener;
-import ru19july.bask.scene3d.parser.LangClass;
-import ru19july.bask.scene3d.parser.LangInstruction;
-import ru19july.bask.scene3d.parser.LangMethod;
 
 public class ListenerOrientedParser {
 
