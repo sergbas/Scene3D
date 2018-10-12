@@ -19,28 +19,28 @@ import static java.util.stream.Collectors.toList;
 
 public class VisitorOrientedParser {
 
-    public LangClass parse(String someLangSourceCode) {
+    public LangScene parse(String someLangSourceCode) {
         CharStream charStream = new ANTLRInputStream(someLangSourceCode);
         LangLexer lexer = new LangLexer(charStream);
         TokenStream tokens = new CommonTokenStream(lexer);
         LangParser parser = new LangParser(tokens);
 
         ClassVisitor classVisitor = new ClassVisitor();
-        LangClass traverseResult = classVisitor.visit(parser.sceneDeclaration());
+        LangScene traverseResult = classVisitor.visit(parser.sceneDeclaration());
         return traverseResult;
     }
 
-    private static class ClassVisitor extends LangParserBaseVisitor<LangClass> {
+    private static class ClassVisitor extends LangParserBaseVisitor<LangScene> {
         @TargetApi(Build.VERSION_CODES.N)
         @Override
-        public LangClass visitSceneDeclaration(@NotNull LangParser.SceneDeclarationContext ctx) {
+        public LangScene visitSceneDeclaration(@NotNull LangParser.SceneDeclarationContext ctx) {
             String className = ctx.sceneName().getText();
             MethodVisitor methodVisitor = new MethodVisitor();
             List<LangMethod> methods = ctx.method()
                     .stream()
                     .map(method -> method.accept(methodVisitor))
                     .collect(toList());
-            return new LangClass(className, methods);
+            return new LangScene(className, methods);
         }
     }
 

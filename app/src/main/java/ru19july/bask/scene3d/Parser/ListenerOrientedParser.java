@@ -19,7 +19,7 @@ import ru19july.bask.scene3d.parser.antlr.LangParserBaseListener;
 
 public class ListenerOrientedParser {
 
-    public LangClass parse(String code) {
+    public LangScene parse(String code) {
         CharStream charStream = new ANTLRInputStream(code);
         LangLexer lexer = new LangLexer(charStream);
         TokenStream tokens = new CommonTokenStream(lexer);
@@ -32,7 +32,7 @@ public class ListenerOrientedParser {
 
     class ClassListener extends LangParserBaseListener {
 
-        private LangClass parsedClass;
+        private LangScene parsedClass;
 
         @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
@@ -41,10 +41,10 @@ public class ListenerOrientedParser {
             MethodListener methodListener = new MethodListener();
             ctx.method().forEach(method -> method.enterRule(methodListener));
             Collection<LangMethod> methods = methodListener.getMethods();
-            parsedClass = new LangClass(sceneName, methods);
+            parsedClass = new LangScene(sceneName, methods);
         }
 
-        public LangClass getParsedClass() {
+        public LangScene getParsedClass() {
             return parsedClass;
         }
     }

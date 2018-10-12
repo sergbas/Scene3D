@@ -3,12 +3,12 @@ package ru19july.bask.scene3d.parser;
 import java.util.Collection;
 import java.util.List;
 
-public class LangClass {
+public class LangScene {
     private String name;
     private Collection<LangMethod> methods;
 
-    public LangClass(String className, Collection<LangMethod> methods) {
-        this.name = className;
+    public LangScene(String name, Collection<LangMethod> methods) {
+        this.name = name;
         this.methods = methods;
     }
 

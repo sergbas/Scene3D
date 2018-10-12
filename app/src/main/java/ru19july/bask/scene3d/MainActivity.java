@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
-import ru19july.bask.scene3d.parser.LangClass;
+import ru19july.bask.scene3d.parser.LangScene;
 import ru19july.bask.scene3d.parser.LangInstruction;
 import ru19july.bask.scene3d.parser.LangMethod;
 import ru19july.bask.scene3d.parser.LangParameter;
@@ -41,23 +41,23 @@ public class MainActivity extends AppCompatActivity {
                 "};";
 
         ListenerOrientedParser parser1 = new ListenerOrientedParser();
-        LangClass parsedCode1 = parser1.parse(code);
+        LangScene parsedCode1 = parser1.parse(code);
         Gson gson = new Gson();
         String json1 = gson.toJson(parsedCode1);
 
         Log.d(TAG, "ListenerOrientedParser: " + json1);
 
         VisitorOrientedParser parser2 = new VisitorOrientedParser();
-        LangClass parsedCode2 = parser2.parse(code);
+        LangScene parsedCode2 = parser2.parse(code);
         String json2 = gson.toJson(parsedCode2);
         Log.d(TAG, "VisitorOrientedParser : " + json2);
 
         executeCode(parsedCode1);
     }
 
-    private void executeCode(LangClass langClass) {
-        Log.d(TAG, "executeCode: " + langClass.getName());
-        List<LangMethod> methods = langClass.getMethods();
+    private void executeCode(LangScene scene) {
+        Log.d(TAG, "executeCode: " + scene.getName());
+        List<LangMethod> methods = scene.getMethods();
         for(LangMethod method : methods){
             Log.d(TAG, "-method: " + method.getName());
 
