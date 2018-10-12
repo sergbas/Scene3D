@@ -19,14 +19,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String code = "class SomeClass {\n" +
-                "    fun1 {\n" +
-                "        instruction11\n" +
-                "        instruction12\n" +
+        String code = "class Sphere {\n" +
+                "    draw {\n" +
+                "        drawSphere\n" +
+                "        invalidate\n" +
                 "    }\n" +
-                "    fun2 {\n" +
-                "        instruction21\n" +
-                "        instruction22\n" +
+                "    move {\n" +
+                "        updateCoordinates\n" +
+                "        swapBuffers\n" +
+                "        draw\n" +
                 "    }\n" +
                 "};";
 
