@@ -18,11 +18,12 @@ public class LangParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		SCENE=1, ID=2, OBJECT3D=3, EQUAL=4, DIGITS=5, L_CURLY_BRACE=6, R_CURLY_BRACE=7, 
-		GREATER=8, LESS=9, EXCLAMATION=10, PLUS_ASSIGN=11, MINUS_ASSIGN=12, MULT_ASSIGN=13, 
-		DIV_ASSIGN=14, MOD_ASSIGN=15, AND_ASSIGN=16, XOR_ASSIGN=17, OR_ASSIGN=18, 
-		DOUBLE_BAR=19, DOT=20, UNDERLINE=21, AT=22, SHARP=23, DOLLAR=24, LR_BRACKET=25, 
-		RR_BRACKET=26, COMMA=27, SEMI=28, COLON=29, STAR=30, DIVIDE=31, MODULE=32, 
-		PLUS=33, MINUS=34, BIT_NOT=35, BIT_OR=36, BIT_AND=37, BIT_XOR=38, WS=39;
+		COMMENT=8, LINE_COMMENT=9, GREATER=10, LESS=11, EXCLAMATION=12, PLUS_ASSIGN=13, 
+		MINUS_ASSIGN=14, MULT_ASSIGN=15, DIV_ASSIGN=16, MOD_ASSIGN=17, AND_ASSIGN=18, 
+		XOR_ASSIGN=19, OR_ASSIGN=20, DOUBLE_BAR=21, DOT=22, UNDERLINE=23, AT=24, 
+		SHARP=25, DOLLAR=26, LR_BRACKET=27, RR_BRACKET=28, COMMA=29, SEMI=30, 
+		COLON=31, STAR=32, DIVIDE=33, MODULE=34, PLUS=35, MINUS=36, BIT_NOT=37, 
+		BIT_OR=38, BIT_AND=39, BIT_XOR=40, WS=41;
 	public static final int
 		RULE_sceneDeclaration = 0, RULE_sceneName = 1, RULE_method = 2, RULE_methodName = 3, 
 		RULE_instruction = 4, RULE_parameters = 5, RULE_any_value = 6, RULE_digits = 7, 
@@ -33,18 +34,20 @@ public class LangParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'scene'", null, null, "'='", null, "'{'", "'}'", "'>'", "'<'", 
-		"'!'", "'+='", "'-='", "'*='", "'/='", "'%='", "'&='", "'^='", "'|='", 
-		"'||'", "'.'", "'_'", "'@'", "'#'", "'$'", "'('", "')'", "','", "';'", 
-		"':'", "'*'", "'/'", "'%'", "'+'", "'-'", "'~'", "'|'", "'&'", "'^'"
+		null, "'scene'", null, null, "'='", null, "'{'", "'}'", null, null, "'>'", 
+		"'<'", "'!'", "'+='", "'-='", "'*='", "'/='", "'%='", "'&='", "'^='", 
+		"'|='", "'||'", "'.'", "'_'", "'@'", "'#'", "'$'", "'('", "')'", "','", 
+		"';'", "':'", "'*'", "'/'", "'%'", "'+'", "'-'", "'~'", "'|'", "'&'", 
+		"'^'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, "SCENE", "ID", "OBJECT3D", "EQUAL", "DIGITS", "L_CURLY_BRACE", "R_CURLY_BRACE", 
-		"GREATER", "LESS", "EXCLAMATION", "PLUS_ASSIGN", "MINUS_ASSIGN", "MULT_ASSIGN", 
-		"DIV_ASSIGN", "MOD_ASSIGN", "AND_ASSIGN", "XOR_ASSIGN", "OR_ASSIGN", "DOUBLE_BAR", 
-		"DOT", "UNDERLINE", "AT", "SHARP", "DOLLAR", "LR_BRACKET", "RR_BRACKET", 
-		"COMMA", "SEMI", "COLON", "STAR", "DIVIDE", "MODULE", "PLUS", "MINUS", 
-		"BIT_NOT", "BIT_OR", "BIT_AND", "BIT_XOR", "WS"
+		"COMMENT", "LINE_COMMENT", "GREATER", "LESS", "EXCLAMATION", "PLUS_ASSIGN", 
+		"MINUS_ASSIGN", "MULT_ASSIGN", "DIV_ASSIGN", "MOD_ASSIGN", "AND_ASSIGN", 
+		"XOR_ASSIGN", "OR_ASSIGN", "DOUBLE_BAR", "DOT", "UNDERLINE", "AT", "SHARP", 
+		"DOLLAR", "LR_BRACKET", "RR_BRACKET", "COMMA", "SEMI", "COLON", "STAR", 
+		"DIVIDE", "MODULE", "PLUS", "MINUS", "BIT_NOT", "BIT_OR", "BIT_AND", "BIT_XOR", 
+		"WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -662,7 +665,7 @@ public class LangParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3)Q\4\2\t\2\4\3\t\3"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3+Q\4\2\t\2\4\3\t\3"+
 		"\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\3\2\3\2\3\2\3"+
 		"\2\3\2\7\2\32\n\2\f\2\16\2\35\13\2\3\2\3\2\3\3\3\3\3\4\3\4\3\4\5\4&\n"+
 		"\4\3\4\5\4)\n\4\3\4\3\4\6\4-\n\4\r\4\16\4.\3\4\3\4\3\5\3\5\3\6\3\6\3\7"+
@@ -673,15 +676,15 @@ public class LangParser extends Parser {
 		"\4\3\2\26\33\7\b\2\2\27\32\5\22\n\2\30\32\5\6\4\2\31\27\3\2\2\2\31\30"+
 		"\3\2\2\2\32\35\3\2\2\2\33\31\3\2\2\2\33\34\3\2\2\2\34\36\3\2\2\2\35\33"+
 		"\3\2\2\2\36\37\7\t\2\2\37\3\3\2\2\2 !\7\4\2\2!\5\3\2\2\2\"(\5\b\5\2#%"+
-		"\7\33\2\2$&\5\f\7\2%$\3\2\2\2%&\3\2\2\2&\'\3\2\2\2\')\7\34\2\2(#\3\2\2"+
+		"\7\35\2\2$&\5\f\7\2%$\3\2\2\2%&\3\2\2\2&\'\3\2\2\2\')\7\36\2\2(#\3\2\2"+
 		"\2()\3\2\2\2)*\3\2\2\2*,\7\b\2\2+-\5\n\6\2,+\3\2\2\2-.\3\2\2\2.,\3\2\2"+
 		"\2./\3\2\2\2/\60\3\2\2\2\60\61\7\t\2\2\61\7\3\2\2\2\62\63\7\4\2\2\63\t"+
-		"\3\2\2\2\64\65\7\4\2\2\65\13\3\2\2\2\66\67\5\16\b\2\678\7\35\2\28:\3\2"+
+		"\3\2\2\2\64\65\7\4\2\2\65\13\3\2\2\2\66\67\5\16\b\2\678\7\37\2\28:\3\2"+
 		"\2\29\66\3\2\2\2:=\3\2\2\2;9\3\2\2\2;<\3\2\2\2<>\3\2\2\2=;\3\2\2\2>?\5"+
 		"\16\b\2?\r\3\2\2\2@C\7\4\2\2AC\5\20\t\2B@\3\2\2\2BA\3\2\2\2C\17\3\2\2"+
-		"\2DE\7\7\2\2E\21\3\2\2\2FL\7\5\2\2GI\7\33\2\2HJ\5\f\7\2IH\3\2\2\2IJ\3"+
-		"\2\2\2JK\3\2\2\2KM\7\34\2\2LG\3\2\2\2LM\3\2\2\2MN\3\2\2\2NO\7\36\2\2O"+
-		"\23\3\2\2\2\13\31\33%(.;BIL";
+		"\2DE\7\7\2\2E\21\3\2\2\2FL\7\5\2\2GI\7\35\2\2HJ\5\f\7\2IH\3\2\2\2IJ\3"+
+		"\2\2\2JK\3\2\2\2KM\7\36\2\2LG\3\2\2\2LM\3\2\2\2MN\3\2\2\2NO\7 \2\2O\23"+
+		"\3\2\2\2\13\31\33%(.;BIL";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -16,6 +16,9 @@ DIGITS : [0-9]+ ;
 L_CURLY_BRACE : '{' ;
 R_CURLY_BRACE : '}' ;
 
+COMMENT:            '/*' (COMMENT | .)*? '*/' -> channel(HIDDEN);
+LINE_COMMENT:       '#' ~[\r\n]* -> channel(HIDDEN);
+
 GREATER:             '>';
 LESS:                '<';
 EXCLAMATION:         '!';

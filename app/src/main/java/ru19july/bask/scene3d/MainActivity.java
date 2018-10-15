@@ -80,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         String code = "scene MyScene {\n" +
-                "    start(){start}\n" +
-                "    cylinder(100, 200, 50);" +
+                "    #start(){start}\n" +
+                "    /*cylinder(100, 200, 50){}*/" +
                 "    sphere(128, 256, 10) {\n" +
                 "        drawSphere\n" +
                 "        invalidate\n" +
