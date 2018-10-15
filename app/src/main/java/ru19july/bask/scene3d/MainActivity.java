@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     boolean testCSG = false;
 
     public class ResponseReceiver extends BroadcastReceiver {
-        public static final String ACTION_RESP = "my.apps.demo.raytracer3d.intent.action.MESSAGE_PROCESSED";
+        public static final String ACTION_RESP = "ru19july.bask.scene3d.intent.action.MESSAGE_PROCESSED";
 
         @Override
         public void onReceive(Context context, Intent intent) {
