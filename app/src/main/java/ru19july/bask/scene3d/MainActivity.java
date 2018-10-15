@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     Handler h;
 
     static int steps = 1;
-    static int MAX_REFLECTIONS = 1;
+    static int MAX_REFLECTIONS = 10;
     static int MAX_REFRACTIONS = 0;
     static double estimated = 0;
     static double donePercents = 0;

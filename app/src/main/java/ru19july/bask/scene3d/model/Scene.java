@@ -2,6 +2,8 @@ package ru19july.bask.scene3d.model;
 
 import android.util.Log;
 
+import com.google.gson.Gson;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -91,8 +93,10 @@ public class Scene implements Serializable {
 		objects.add(object);
 		CSGobject csg = csgObjects.get(csgObjects.size()-1);
 		csg.objIndex.add(objects.size()-1);
-		
-		Log.e(TAG, "AddObject: " + object + " => " + objects);
+
+		Gson gson = new Gson();
+		String json = gson.toJson(object);
+		Log.e(TAG, "AddObject: " + json + " => " +  objects);
 	}
 
 
