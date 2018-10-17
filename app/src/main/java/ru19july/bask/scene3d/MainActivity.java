@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         String code = "scene MyScene {\n" +
                 "    #start(){start}\n" +
                 "    /*cylinder(100, 200, 50){}*/" +
-                "    sphere(128, 256, 10) {\n" +
+                "    sphere(23, 105, 84, 85) {\n" +
                 "        drawSphere\n" +
                 "        invalidate\n" +
                 "    }\n" +
@@ -307,9 +307,11 @@ public class MainActivity extends AppCompatActivity {
             List<LangInstruction> instructions = method.getInstructions();
 
             if(method.getName().equals("sphere")){
-                Log.d(TAG, ">>> RENDER: rlSphere(x=" + parameters.get(0).getValue() +
+                Log.d(TAG, ">>> RENDER: rlSphere(" +
+                        "x=" + parameters.get(0).getValue() +
                         ", y=" + parameters.get(1).getValue() +
-                        ", radius=" + parameters.get(2).getValue() + ")");
+                        ", z=" + parameters.get(2).getValue() +
+                        ", radius=" + parameters.get(3).getValue() + ")");
 
             }
             for (LangInstruction instruction : instructions){
