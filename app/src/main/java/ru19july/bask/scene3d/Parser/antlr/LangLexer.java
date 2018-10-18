@@ -1,5 +1,5 @@
 package ru19july.bask.scene3d.parser.antlr;
-// Generated from C:/Projects/Scene3D/app/src/g4\LangLexer.g4 by ANTLR 4.7
+// Generated from D:/Projects/Scene3D/app/src/g4\LangLexer.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;

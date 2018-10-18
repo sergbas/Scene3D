@@ -18,7 +18,6 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -105,8 +104,6 @@ public class MainActivity extends AppCompatActivity {
         String json2 = gson.toJson(parsedCode2);
         Log.d(TAG, "VisitorOrientedParser : " + json2);
 
-        executeCode(parsedCode1);
-
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
 
@@ -123,17 +120,20 @@ public class MainActivity extends AppCompatActivity {
 
         image = (ImageView) findViewById(R.id.imageView1);
         image.setImageBitmap(board.Init());
+
+        Scene scene = executeCode(parsedCode1);
+        Render(scene);
+
     }
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
-        if(image != null && bitmap != null)
+        if (image != null && bitmap != null)
             image.setImageBitmap(bitmap);
     }
 
-    public Scene InitScene()
-    {
+    public Scene InitScene() {
         Log.e(TAG, "InitScene");
         Scene sc = new Scene();
         sc.light = new Vector(0.0f, -199f, 0.0f);
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
         Random r = new Random();
 
-        if(showCornellBox) {
+        if (showCornellBox) {
             sc.BeginCSG("CornellBox");
             sc.AddObject(new Plane(new Vector(0, 0, 100), new Vector(0, -1, 0), Color.Yellow(), 0.3, 0.0, 1.1));//back
             sc.AddObject(new Plane(new Vector(0, 200, 0), new Vector(0, 0, 1), Color.Red(), 0.3, 0.0, 1.1));//floor
@@ -161,38 +161,35 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        if(testCSG)
-        {
+        if (testCSG) {
             sc.BeginCSG("CSG_Difference");
-            sc.AddObject(new Sphere( 30f, -5f, 20f, 100f, Color.Red(), 0.1f, 0.0f, 1.1f));
+            sc.AddObject(new Sphere(30f, -5f, 20f, 100f, Color.Red(), 0.1f, 0.0f, 1.1f));
             sc.AddObject(new Sphere(-30f, 10f, -10f, 100f, Color.Green(), 0.1f, 0.0f, 1.1f));
             sc.EndCSG();
-            sc.csgObjects.get(sc.csgObjects.size()-1).operations.add(new Operation("-", 6, 5));
+            sc.csgObjects.get(sc.csgObjects.size() - 1).operations.add(new Operation("-", 6, 5));
 
             sc.BeginCSG("CSG_Union");
-            sc.AddObject(new Sphere( 90f, 30f, 90f, 100f, Color.Blue(), 0.1f, 0.0f, 1.1f));
-            sc.AddObject(new Sphere( 50f, 50f, 50f, 100f, Color.Magenta(), 0.1f, 0.0f, 1.1f));
+            sc.AddObject(new Sphere(90f, 30f, 90f, 100f, Color.Blue(), 0.1f, 0.0f, 1.1f));
+            sc.AddObject(new Sphere(50f, 50f, 50f, 100f, Color.Magenta(), 0.1f, 0.0f, 1.1f));
             sc.EndCSG();
-            sc.csgObjects.get(sc.csgObjects.size()-1).operations.add(new Operation("&", 7, 8));
-        }
-        else{
+            sc.csgObjects.get(sc.csgObjects.size() - 1).operations.add(new Operation("&", 7, 8));
+        } else {
             sc.BeginCSG("Balls");
-            for(int i=0;i<10;i++)
-            {
+            for (int i = 0; i < 10; i++) {
                 try {
-                    Thread.sleep(i*10);
+                    Thread.sleep(i * 10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                int x = r.nextInt(300)-150;
-                int y = r.nextInt(400)-200;
-                int z = r.nextInt(200)-100;
-                Log.i("sphere x,y,z", x+","+y+","+z);
+                int x = r.nextInt(300) - 150;
+                int y = r.nextInt(400) - 200;
+                int z = r.nextInt(200) - 100;
+                Log.i("sphere x,y,z", x + "," + y + "," + z);
 
                 Color col = Color.FromArgb(r.nextInt(256), r.nextInt(256), r.nextInt(256));
                 Sphere sph = new Sphere(
                         x, y, z,
-                        r.nextInt(90)+10, col, 0.1, 0.5, 1.5);
+                        r.nextInt(90) + 10, col, 0.1, 0.5, 1.5);
                 sc.AddObject(sph);
             }
             sc.EndCSG();
@@ -201,8 +198,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressLint("HandlerLeak")
-    public void Render(final Scene scene)
-    {
+    public void Render(final Scene scene) {
         Log.i("Render", ">>");
 
         start = System.currentTimeMillis();
@@ -214,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
         pd.setTitle("Rendering");
         pd.setMessage("Please wait...");
         pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        pd.setMax(480-60-64);
+        pd.setMax(480 - 60 - 64);
         pd.setIndeterminate(true);
         pd.show();
 
@@ -239,32 +235,30 @@ public class MainActivity extends AppCompatActivity {
                     h.sendEmptyMessageDelayed(0, 100);
 
                     time = System.currentTimeMillis() - start;
-                    donePercents = 100*(j-64)/(420-64);
-                    if(donePercents>0)
-                        estimated = 100*time/donePercents;
+                    donePercents = 100 * (j - 64) / (420 - 64);
+                    if (donePercents > 0)
+                        estimated = 100 * time / donePercents;
 
-                    long seconds = (long)((estimated - time)/1000);
+                    long seconds = (long) ((estimated - time) / 1000);
                     long minutes = seconds / 60;
 
                     pd.setMessage("Please wait... " + minutes + "m " + (seconds % 60) + "s");
 
-                    for (int i = 0; i < 320; i++)
-                    {
+                    for (int i = 0; i < 320; i++) {
 
                         Color c = renderer.Render(i - 320 / 2, j - 480 / 2);
                         int icol = 0xff000000 + (c.R << 16) + (c.G << 8) + c.B;
                         p.setColor(icol);
 
-                        if(steps == 1)
+                        if (steps == 1)
                             canvas.drawPoint(i, j, p);
                         else
-                            canvas.drawRect(i, j, i+steps+1, j+steps+1, p);
+                            canvas.drawRect(i, j, i + steps + 1, j + steps + 1, p);
 
-                        i+=(steps-1);
+                        i += (steps - 1);
                     }
-                    j+=steps;
-                }
-                else {
+                    j += steps;
+                } else {
                     pd.dismiss();
                 }
 
@@ -282,9 +276,10 @@ public class MainActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.button1:
                 Log.e(TAG, "click");
+                if(true)return;
                 scene = InitScene();
 
-                if(!multithreadType)
+                if (!multithreadType)
                     Render(scene);
                 else {
                     Intent msgIntent = new Intent(context, RenderIntentService.class);
@@ -297,27 +292,55 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void executeCode(LangScene scene) {
+    private Scene executeCode(LangScene scene) {
         Log.d(TAG, "executeCode: " + scene.getName());
+
+        Scene sc = new Scene();
+        sc.light = new Vector(0.0f, -199f, 0.0f);
+
+        sc.SetCamera(new Vector(-110.1f, -110.1f, -110.1f), 180f, 0f);
+        sc.MaxReflection = MAX_REFLECTIONS;
+        sc.MaxRefraction = MAX_REFRACTIONS;
+        sc.FOCUS = 300;
+        sc.Shadows = false;
+
+        Random r = new Random();
+
+        sc.BeginCSG("Balls");
+
+
         List<LangMethod> methods = scene.getMethods();
-        for(LangMethod method : methods){
+        for (LangMethod method : methods) {
             Log.d(TAG, "-method: " + method.getName());
 
             List<LangParameter> parameters = method.getParameters();
             List<LangInstruction> instructions = method.getInstructions();
 
-            if(method.getName().equals("sphere")){
+            if (method.getName().equals("sphere")) {
                 Log.d(TAG, ">>> RENDER: rlSphere(" +
                         "x=" + parameters.get(0).getValue() +
                         ", y=" + parameters.get(1).getValue() +
                         ", z=" + parameters.get(2).getValue() +
                         ", radius=" + parameters.get(3).getValue() + ")");
 
+                Color col = Color.FromArgb(r.nextInt(256), r.nextInt(256), r.nextInt(256));
+                Sphere sph = new Sphere(
+                        Double.parseDouble(parameters.get(0).getValue()),
+                        Double.parseDouble(parameters.get(1).getValue()),
+                        Double.parseDouble(parameters.get(2).getValue()),
+                        Double.parseDouble(parameters.get(3).getValue()),
+                        col, 0.1, 0.5, 1.5);
+                sc.AddObject(sph);
+
             }
-            for (LangInstruction instruction : instructions){
+            for (LangInstruction instruction : instructions) {
                 Log.d(TAG, "--instruction: " + instruction.getName());
             }
         }
+
+        sc.EndCSG();
+
+        return sc;
     }
 
 }
