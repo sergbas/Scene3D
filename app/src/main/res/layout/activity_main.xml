@@ -20,4 +20,23 @@
         android:layout_width="400dp"
         android:layout_height="400dp" />
 
+    <EditText
+        android:id="@+id/codeText"
+        android:text="scene MyScene {\n
+    #start(){start}\n
+    /*cylinder(100, 200, 50){}*/\n
+    sphere(23, 105, 84, 85) {\n
+        drawSphere\n
+        invalidate\n
+    }\n
+    move(toX, toY) {\n
+        updateCoordinates\n
+        swapBuffers\n
+        draw\n
+    }\n
+};\n
+"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
+
 </LinearLayout>

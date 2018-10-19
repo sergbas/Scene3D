@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean showCornellBox = false;
     private boolean multithreadType = false;
     boolean testCSG = false;
+    private EditText codeText;
 
     public class ResponseReceiver extends BroadcastReceiver {
         public static final String ACTION_RESP = "ru19july.bask.scene3d.intent.action.MESSAGE_PROCESSED";
@@ -84,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         context = this;
 
         runButt = (Button) findViewById(R.id.button1);
+        codeText = findViewById(R.id.codeText);
 
         Board board = new Board();
 
@@ -249,19 +252,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //scene = InitScene();
 
-                String code = "scene MyScene {\n" +
-                        "    #start(){start}\n" +
-                        "    /*cylinder(100, 200, 50){}*/" +
-                        "    sphere(23, 105, 84, 85) {\n" +
-                        "        drawSphere\n" +
-                        "        invalidate\n" +
-                        "    }\n" +
-                        "    move(toX, toY) {\n" +
-                        "        updateCoordinates\n" +
-                        "        swapBuffers\n" +
-                        "        draw\n" +
-                        "    }\n" +
-                        "};";
+                String code = codeText.getText().toString();
 
                 ListenerOrientedParser parser1 = new ListenerOrientedParser();
                 LangScene parsedCode1 = parser1.parse(code);
