@@ -78,32 +78,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String code = "scene MyScene {\n" +
-                "    #start(){start}\n" +
-                "    /*cylinder(100, 200, 50){}*/" +
-                "    sphere(23, 105, 84, 85) {\n" +
-                "        drawSphere\n" +
-                "        invalidate\n" +
-                "    }\n" +
-                "    move(toX, toY) {\n" +
-                "        updateCoordinates\n" +
-                "        swapBuffers\n" +
-                "        draw\n" +
-                "    }\n" +
-                "};";
-
-        ListenerOrientedParser parser1 = new ListenerOrientedParser();
-        LangScene parsedCode1 = parser1.parse(code);
-        Gson gson = new Gson();
-        String json1 = gson.toJson(parsedCode1);
-
-        Log.d(TAG, "ListenerOrientedParser: " + json1);
-
-        VisitorOrientedParser parser2 = new VisitorOrientedParser();
-        LangScene parsedCode2 = parser2.parse(code);
-        String json2 = gson.toJson(parsedCode2);
-        Log.d(TAG, "VisitorOrientedParser : " + json2);
-
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
 
@@ -120,9 +94,6 @@ public class MainActivity extends AppCompatActivity {
 
         image = (ImageView) findViewById(R.id.imageView1);
         image.setImageBitmap(board.Init());
-
-        Scene scene = executeCode(parsedCode1);
-        Render(scene);
 
     }
 
@@ -159,7 +130,6 @@ public class MainActivity extends AppCompatActivity {
             sc.csgObjects.get(0).operations.add(new Operation("+", 0, 3));
             sc.csgObjects.get(0).operations.add(new Operation("+", 0, 4));
         }
-
 
         if (testCSG) {
             sc.BeginCSG("CSG_Difference");
@@ -276,8 +246,36 @@ public class MainActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.button1:
                 Log.e(TAG, "click");
-                if(true)return;
-                scene = InitScene();
+
+                //scene = InitScene();
+
+                String code = "scene MyScene {\n" +
+                        "    #start(){start}\n" +
+                        "    /*cylinder(100, 200, 50){}*/" +
+                        "    sphere(23, 105, 84, 85) {\n" +
+                        "        drawSphere\n" +
+                        "        invalidate\n" +
+                        "    }\n" +
+                        "    move(toX, toY) {\n" +
+                        "        updateCoordinates\n" +
+                        "        swapBuffers\n" +
+                        "        draw\n" +
+                        "    }\n" +
+                        "};";
+
+                ListenerOrientedParser parser1 = new ListenerOrientedParser();
+                LangScene parsedCode1 = parser1.parse(code);
+                Gson gson = new Gson();
+                String json1 = gson.toJson(parsedCode1);
+
+                Log.d(TAG, "ListenerOrientedParser: " + json1);
+
+                VisitorOrientedParser parser2 = new VisitorOrientedParser();
+                LangScene parsedCode2 = parser2.parse(code);
+                String json2 = gson.toJson(parsedCode2);
+                Log.d(TAG, "VisitorOrientedParser : " + json2);
+
+                scene = executeCode(parsedCode1);
 
                 if (!multithreadType)
                     Render(scene);
@@ -307,7 +305,6 @@ public class MainActivity extends AppCompatActivity {
         Random r = new Random();
 
         sc.BeginCSG("Balls");
-
 
         List<LangMethod> methods = scene.getMethods();
         for (LangMethod method : methods) {
