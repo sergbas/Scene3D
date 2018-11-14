@@ -1,6 +1,5 @@
 package ru19july.bask.scene3d.parser.antlr;
-
-// Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
+// Generated from D:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -108,6 +107,18 @@ public class LangParserBaseListener implements LangParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDigits(LangParser.DigitsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterObject3d(LangParser.Object3dContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitObject3d(LangParser.Object3dContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

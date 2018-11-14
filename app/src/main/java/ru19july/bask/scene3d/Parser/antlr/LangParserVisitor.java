@@ -1,6 +1,5 @@
 package ru19july.bask.scene3d.parser.antlr;
-
-// Generated from C:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
+// Generated from D:/Projects/Scene3D/app/src/g4\LangParser.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -59,4 +58,10 @@ public interface LangParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitDigits(LangParser.DigitsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LangParser#object3d}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitObject3d(LangParser.Object3dContext ctx);
 }

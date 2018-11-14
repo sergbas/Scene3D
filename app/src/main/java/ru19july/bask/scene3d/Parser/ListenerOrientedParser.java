@@ -13,9 +13,8 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import ru19july.bask.scene3d.parser.antlr.LangLexer;
-import ru19july.bask.scene3d.parser.antlr.LangParser;
-import ru19july.bask.scene3d.parser.antlr.LangParserBaseListener;
+import ru19july.bask.scene3d.parser.*;
+import ru19july.bask.scene3d.parser.antlr.*;
 
 public class ListenerOrientedParser {
 
